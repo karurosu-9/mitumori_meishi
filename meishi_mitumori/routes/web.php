@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\CorpController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('corp', [CorpController::class, 'index'])->name('corp.list');
+Route::get('corp/show/{corp}', [CorpController::class, 'show'])->name('corp.show');
