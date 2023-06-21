@@ -3,7 +3,10 @@
 @section('title', '会社一覧')
 
 @section('content')
-
+<br>
+<br>
+<br>
+<br>
 <h1>会社一覧</h1>
 <br>
 <br>
