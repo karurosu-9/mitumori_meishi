@@ -9,7 +9,7 @@
 <br>
 <br>
 <br>
-<h1>会社-詳細</h1>
+<h1>【 {{ $corp->corp_name }}-詳細 】</h1>
 <br>
 <br>
 <table cellpadding="1">
