@@ -29,4 +29,14 @@ class CorpController extends Controller
 
         return view('corp.show', $data);
     }
+
+    public function add()
+    {
+        return view('corp.add');
+    }
+
+    public function create()
+    {
+        var_dump($_POST);exit;
+    }
 }
