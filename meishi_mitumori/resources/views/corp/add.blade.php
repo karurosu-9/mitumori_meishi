@@ -57,8 +57,8 @@
 
         let emptyFields = []
 
-        let corpNameElements = document.;
-        let corpName = corpNameElement  ? corpNameElement.getAttribute(value) : '';
+        let corpNameElement = document.getElementById('corp_name');
+        let corpName = corpNameElement.value ? corpNameElement.value : '';
         console.log(corpName)
         if (corpName === '') {
             emptyFields.push('会社名');
