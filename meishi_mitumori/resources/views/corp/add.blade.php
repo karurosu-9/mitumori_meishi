@@ -23,7 +23,7 @@
             <th>郵便番号</th>
             <td>
                 <span class="p-country-name" style="display:none;">Japan</span>
-                〒<input type="text" class="p-postal-code" size="7" maxlength="7" name="postal_code"
+                〒<input type="text" id="postal_code" class="p-postal-code" size="7" maxlength="7" name="postal_code"
                     value="{{ old('postal_code') }}">
                 <br>
             </td>
@@ -32,13 +32,13 @@
             <th>住所</th>
             <td>
                 <span class="p-country-name" style="display:none;">Japan</span>
-                <input type="text" class="p-region p-locality p-street-address p-extended-address" name="address"
+                <input type="text" id="address" class="p-region p-locality p-street-address p-extended-address" name="address"
                     value="{{ old('address') }}">
             </td>
         </tr>
         <tr>
             <th>電話番号</th>
-            <td><input type="text" name="tel" value="{{ old('tel') }}"></td>
+            <td><input type="text" id="tel" name="tel" value="{{ old('tel') }}"></td>
         </tr>
     </table>
     <br>
@@ -64,20 +64,20 @@
             emptyFields.push('会社名');
         }
 
-        let postalCodeElement = document.getElementsByName('postal_code')[0];
-        let postalCode = postalCodeElement.length > 0 ? postalCodeElement.value : '';
+        let postalCodeElement = document.getElementById('postal_code');
+        let postalCode = postalCodeElement.value ? postalCodeElement.value : '';
         if (postalCode === '') {
             emptyFields.push('郵便番号');
         }
 
-        let addressElement = document.getElementsByName('address')[0];
-        let address = addressElement.length > 0 ? addressElement.value : '';
+        let addressElement = document.getElementById('address');
+        let address = addressElement.value ? addressElement.value : '';
         if (address === '') {
             emptyFields.push('住所');
         }
 
-        let telElement = document.getElementsByName('tel')[0];
-        let tel = telElement.length > 0 ? telElement.value : '';
+        let telElement = document.getElementById('tel');
+        let tel = telElement.value ? telElement.value : '';
         if (tel === '') {
             emptyFields.push('電話番号');
         }
