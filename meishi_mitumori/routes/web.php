@@ -20,3 +20,5 @@ Route::get('/', function () {
 
 Route::get('corp', [CorpController::class, 'index'])->name('corp.list');
 Route::get('corp/show/{corp}', [CorpController::class, 'show'])->name('corp.show');
+Route::get('corp/add', [CorpController::class, 'add'])->name('corp.add');
+Route::post('corp/add', [CorpController::class, 'create']);
