@@ -3,7 +3,8 @@
 <head>
     <title>@yield('title')</title>
     <!-- ここに共通のCSSやJavaScriptのリンクなどを追加 -->
-    <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/pages/layout.css') }}" rel="stylesheet">
+    
 </head>
 <body>
     <header>
