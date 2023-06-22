@@ -37,6 +37,7 @@ class CorpController extends Controller
 
     public function create()
     {
-        var_dump($_POST);exit;
+        $corp = new Corp;
+        $c
     }
 }
