@@ -20,3 +20,8 @@ th {
 td {
     border: solid 2px black;
 }
+
+li.post-error-list {
+    color: red;
+    font-weight: bold;
+}
