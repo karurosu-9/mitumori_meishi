@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Corp;
+use App\Http\Requests\CreateCorpRequest;
 
 class CorpController extends Controller
 {
@@ -35,9 +36,21 @@ class CorpController extends Controller
         return view('corp.add');
     }
 
-    public function create()
+    public function create(CreateCorpRequest $request)
     {
         $corp = new Corp;
-        $c
+        $form = $request->validated();
+        $corp->fill($form)->save();
+
+        return redirect()->route('corp.show');
+    }
+
+    public function edit(Corp $corp)
+    {
+        $data = [
+            'corp' => $corp,
+        ];
+
+        return view('corp.edit', $data);
     }
 }
