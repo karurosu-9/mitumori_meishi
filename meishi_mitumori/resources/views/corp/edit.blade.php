@@ -10,13 +10,13 @@
     <h1>【 会社-登録 】</h1>
     <br>
     <br>
-    <form action="{{ route('corp.add') }}" class="h-adr" method="POST" onsubmit="return addCheckMessage()">
-    @include('forms._corp_form', ['action' => 'add'])
+    <form action="{{ route('corp.edit', $corp->id) }}" class="h-adr" method="POST" onsubmit="return addCheckMessage()">
+    @include('forms._corp_form', ['action' => 'edit'])
     <br>
     <br>
     <div class="button">
         <button onclick="location.href='{{ route('corp.list') }}'">戻る</button>
-        <input type="submit" value="登録">
+        <input type="submit" value="編集">
     </div>
 
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
