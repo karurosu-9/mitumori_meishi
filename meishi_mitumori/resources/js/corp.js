@@ -36,3 +36,5 @@ export function addCheckMessage() {
     let msg = confirm('この内容で登録してもよろしいですか？');
     return msg;
 }
+
+window.addCheckMessage = addCheckMessage;
