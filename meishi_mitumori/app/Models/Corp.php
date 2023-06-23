@@ -17,6 +17,6 @@ class Corp extends Model
 
     public function businessCards()
     {
-        return $this->hasMany(BusinessCard::class)
+        return $this->hasMany(BusinessCard::class);
     }
 }
