@@ -14,4 +14,9 @@ class Corp extends Model
 
     //タイムスタンプの自動更新を有効
     public $timestamps = true;
+
+    public function businessCards()
+    {
+        return $this->hasMany(BusinessCard::class)
+    }
 }
