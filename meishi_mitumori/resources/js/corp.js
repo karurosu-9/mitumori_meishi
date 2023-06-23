@@ -3,26 +3,26 @@ export function addCheckMessage() {
 
     let emptyFields = []
 
-    let corpNameElement = document.getElementsByName('corp_name')[0];
-    let corpName = corpNameElement.length > 0 ? corpNameElement.value : '';
+    let corpNameElement = document.getElementsById('corp_name');
+    let corpName = corpNameElement ? corpNameElement.value : '';
     if (corpName === '') {
         emptyFields.push('会社名');
     }
 
-    let postalCodeElement = document.getElementsByName('postal_code')[0];
-    let postalCode = postalCodeElement.length > 0 ? postalCodeElement.value : '';
+    let postalCodeElement = document.getElementsById('postal_code');
+    let postalCode = postalCodeElement ? postalCodeElement.value : '';
     if (postalCode === '') {
         emptyFields.push('郵便番号');
     }
 
-    let addressElement = document.getElementsByName('address')[0];
-    let address = addressElement.length > 0 ? addressElement.value : '';
+    let addressElement = document.getElementsById('address');
+    let address = addressElement ? addressElement.value : '';
     if (address === '') {
         emptyFields.push('住所');
     }
 
-    let telElement = document.getElementsByName('tel')[0];
-    let tel = telElement.length > 0 ? telElement.value : '';
+    let telElement = document.getElementsById('tel');
+    let tel = telElement ? telElement.value : '';
     if (tel === '') {
         emptyFields.push('電話番号');
     }

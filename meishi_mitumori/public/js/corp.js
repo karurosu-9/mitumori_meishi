@@ -15,23 +15,23 @@ __webpack_require__.r(__webpack_exports__);
 //addビュー用のjsコード
 function addCheckMessage() {
   var emptyFields = [];
-  var corpNameElement = document.getElementsByName('corp_name')[0];
-  var corpName = corpNameElement.length > 0 ? corpNameElement.value : '';
+  var corpNameElement = document.getElementsById('corp_name');
+  var corpName = corpNameElement ? corpNameElement.value : '';
   if (corpName === '') {
     emptyFields.push('会社名');
   }
-  var postalCodeElement = document.getElementsByName('postal_code')[0];
-  var postalCode = postalCodeElement.length > 0 ? postalCodeElement.value : '';
+  var postalCodeElement = document.getElementsById('postal_code');
+  var postalCode = postalCodeElement ? postalCodeElement.value : '';
   if (postalCode === '') {
     emptyFields.push('郵便番号');
   }
-  var addressElement = document.getElementsByName('address')[0];
-  var address = addressElement.length > 0 ? addressElement.value : '';
+  var addressElement = document.getElementsById('address');
+  var address = addressElement ? addressElement.value : '';
   if (address === '') {
     emptyFields.push('住所');
   }
-  var telElement = document.getElementsByName('tel')[0];
-  var tel = telElement.length > 0 ? telElement.value : '';
+  var telElement = document.getElementsById('tel');
+  var tel = telElement ? telElement.value : '';
   if (tel === '') {
     emptyFields.push('電話番号');
   }
