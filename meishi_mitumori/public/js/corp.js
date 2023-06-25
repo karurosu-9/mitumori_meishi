@@ -14,23 +14,25 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 //addビュー用のjsコード
 function addCheckMessage() {
+  var i = "あいうえお";
+  console.log(i);
   var emptyFields = [];
-  var corpNameElement = document.getElementsById('corp_name');
+  var corpNameElement = document.getElementById('corp_name');
   var corpName = corpNameElement ? corpNameElement.value : '';
   if (corpName === '') {
     emptyFields.push('会社名');
   }
-  var postalCodeElement = document.getElementsById('postal_code');
+  var postalCodeElement = document.getElementById('postal_code');
   var postalCode = postalCodeElement ? postalCodeElement.value : '';
   if (postalCode === '') {
     emptyFields.push('郵便番号');
   }
-  var addressElement = document.getElementsById('address');
+  var addressElement = document.getElementById('address');
   var address = addressElement ? addressElement.value : '';
   if (address === '') {
     emptyFields.push('住所');
   }
-  var telElement = document.getElementsById('tel');
+  var telElement = document.getElementById('tel');
   var tel = telElement ? telElement.value : '';
   if (tel === '') {
     emptyFields.push('電話番号');

@@ -1,27 +1,28 @@
 //addビュー用のjsコード
 export function addCheckMessage() {
-
+    let i = "あいうえお";
+    console.log(i);
     let emptyFields = []
 
-    let corpNameElement = document.getElementsById('corp_name');
+    let corpNameElement = document.getElementById('corp_name');
     let corpName = corpNameElement ? corpNameElement.value : '';
     if (corpName === '') {
         emptyFields.push('会社名');
     }
 
-    let postalCodeElement = document.getElementsById('postal_code');
+    let postalCodeElement = document.getElementById('postal_code');
     let postalCode = postalCodeElement ? postalCodeElement.value : '';
     if (postalCode === '') {
         emptyFields.push('郵便番号');
     }
 
-    let addressElement = document.getElementsById('address');
+    let addressElement = document.getElementById('address');
     let address = addressElement ? addressElement.value : '';
     if (address === '') {
         emptyFields.push('住所');
     }
 
-    let telElement = document.getElementsById('tel');
+    let telElement = document.getElementById('tel');
     let tel = telElement ? telElement.value : '';
     if (tel === '') {
         emptyFields.push('電話番号');
