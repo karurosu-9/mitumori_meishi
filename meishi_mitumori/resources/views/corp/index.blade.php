@@ -7,7 +7,7 @@
 <br>
 <br>
 <br>
-<h1>会社一覧</h1>
+<h1>【 会社一覧 】</h1>
 <br>
 <br>
 <table cellpadding="1">
@@ -19,7 +19,7 @@
     <tr>
         @foreach ($corps as $corp)
             <tr>
-                <td><a href="{{ route('corp.show', ['corp' => $corp]) }}">{{ $corp->corp_name }}</a></td>
+                <td><a href="{{ route('corp.businessCardsList', ['corp' => $corp]) }}">{{ $corp->corp_name }}</a></td>
                 <td>{{ $corp->address }}</td>
                 <td>{{ $corp->tel }}</td>
             </tr>
