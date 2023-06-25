@@ -19,12 +19,19 @@ class CorpController extends Controller
         return view('corp.index', $data);
     }
 
-    public function businessCardList()
+    public function businessCardsList(Corp $corp)
     {
+        $businessCards = $corp->businessCards;
 
+        $data = [
+            'businessCards' => $businessCards,
+            'corp' => $corp,
+        ];
+
+        return view('corp.business_cards_list', $data);
     }
 
-    public function show(Corp $corp, $id)
+    public function show(Corp $corp)
     {
         $postalCode = substr($corp->postal_code, 0, 3) . '-' . substr($corp->postal_code, 3);
 
