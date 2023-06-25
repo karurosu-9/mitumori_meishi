@@ -19,7 +19,12 @@ class CorpController extends Controller
         return view('corp.index', $data);
     }
 
-    public function show(Corp $corp)
+    public function businessCardList()
+    {
+
+    }
+
+    public function show(Corp $corp, $id)
     {
         $postalCode = substr($corp->postal_code, 0, 3) . '-' . substr($corp->postal_code, 3);
 
@@ -45,7 +50,7 @@ class CorpController extends Controller
         return redirect()->route('corp.show');
     }
 
-    public function edit(Corp $corp)
+    public function edit(Corp $corp, $id)
     {
         $data = [
             'corp' => $corp,
