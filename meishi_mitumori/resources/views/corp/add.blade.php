@@ -20,45 +20,6 @@
     </div>
 
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
-    <script>
-        function addCheckMessage() {
-            //未記入の項目名を入れる変数
-            let emptyFields = []
-
-            let corpNameElement = document.getElementById('corp_name');
-            let corpName = corpNameElement.value ? corpNameElement.value : '';
-            if (corpName === '') {
-                emptyFields.push('会社名');
-            }
-
-            let postalCodeElement = document.getElementById('postal_code');
-            let postalCode = postalCodeElement.value ? postalCodeElement.value : '';
-            if (postalCode === '') {
-                emptyFields.push('郵便番号');
-            }
-
-            let addressElement = document.getElementById('address');
-            let address = addressElement.value ? addressElement.value : '';
-            if (address === '') {
-                emptyFields.push('住所');
-            }
-
-            let telElement = document.getElementById('tel');
-            let tel = telElement.value ? telElement.value : '';
-            if (tel === '') {
-                emptyFields.push('電話番号');
-            }
-
-            //未記入の項目があった時の処理
-            if (emptyFields.length > 0) {
-                let emptyFieldsString = emptyFields.join(',')
-                alert('未記入の項目があります。:' + emptyFieldsString)
-                return false;
-            }
-
-            let msg = confirm('この内容で登録してもよろしいですか？');
-            return msg;
-        }
-    </script>
+    <script src="{{ asset('js/corp.js') }}"></script>
 
 @endsection
