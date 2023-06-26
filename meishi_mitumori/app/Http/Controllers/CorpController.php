@@ -60,7 +60,7 @@ class CorpController extends Controller
         $form = $request->validated();
         $corp->fill($form)->save();
 
-        return redirect()->route('corp.show');
+        return redirect()->route('corp.business_cards_list');
     }
 
     public function edit(Corp $corp)
