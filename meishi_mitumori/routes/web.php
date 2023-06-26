@@ -24,4 +24,4 @@ Route::get('corp/show/{corp}', [CorpController::class, 'show'])->name('corp.show
 Route::get('corp/add', [CorpController::class, 'add'])->name('corp.add');
 Route::post('corp/add', [CorpController::class, 'create']);
 Route::get('corp/edit/{corp}', [CorpController::class, 'edit'])->name('corp.edit');
-Route::get('corp/delete/{corp', [CorpController::class, 'delete'])->name('corp.delete');
+Route::get('corp/delete/{corp}', [CorpController::class, 'delete'])->name('corp.delete');
