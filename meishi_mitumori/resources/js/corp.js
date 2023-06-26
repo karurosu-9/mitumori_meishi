@@ -1,7 +1,6 @@
 //addビュー用のjsコード
 export function addCheckMessage() {
-    let i = "あいうえお";
-    console.log(i);
+    //未記入の項目があった場合、その項目名を入れる変数
     let emptyFields = []
 
     let corpNameElement = document.getElementById('corp_name');
@@ -28,6 +27,7 @@ export function addCheckMessage() {
         emptyFields.push('電話番号');
     }
 
+    //未記入の項目のあった時の処理
     if (emptyFields.length > 0) {
         let emptyFieldsString = emptyFields.join(',');
         alert('未記入の欄があります。:' + emptyFieldsString);
@@ -39,3 +39,13 @@ export function addCheckMessage() {
 }
 
 window.addCheckMessage = addCheckMessage;
+
+//show用のjsコード
+export function confirmDelete()
+{
+    if (confirm(`『名刺No. <?php echo $corp->id?> 』の名刺データを削除してもよろしいですか？`)) {
+        location.href = "{{ route('corp.delete'), ['corp' => $corp] }}";
+    }
+}
+
+window.confirmDelete = confirmDelete;
