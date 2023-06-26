@@ -11,9 +11,24 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   addCheckMessage: () => (/* binding */ addCheckMessage),
-/* harmony export */   confirmDelete: () => (/* binding */ confirmDelete)
+/* harmony export */   deleteCorp: () => (/* binding */ deleteCorp),
+/* harmony export */   editCorp: () => (/* binding */ editCorp)
 /* harmony export */ });
-//addビュー用のjsコード
+//index、show用のedit、deleteボタンのclickアクションのjsコード
+function editCorp(url) {
+  location.href = url;
+}
+window.editCorp = editCorp;
+function deleteCorp(event, url) {
+  //会社名の値の取得
+  var corpName = event.target.getAttribute('data-corp-name');
+  if (confirm('会社名『 ' + corpName + ' 』を本当に削除してよろしいですか？')) {
+    location.href = url;
+  }
+}
+window.deleteCorp = deleteCorp;
+
+//addビュー用のフォーム入力時のjsコード
 function addCheckMessage() {
   //未記入の項目があった場合、その項目名を入れる変数
   var emptyFields = [];
@@ -49,15 +64,7 @@ function addCheckMessage() {
 }
 window.addCheckMessage = addCheckMessage;
 
-//show用のjsコード
-function confirmDelete() {
-  if (confirm("\u300E\u540D\u523ANo. <?php echo $corp->id?> \u300F\u306E\u540D\u523A\u30C7\u30FC\u30BF\u3092\u524A\u9664\u3057\u3066\u3082\u3088\u308D\u3057\u3044\u3067\u3059\u304B\uFF1F")) {
-    location.href = "{{ route('corp.delete'), ['corp' => $corp] }}";
-  }
-}
-window.confirmDelete = confirmDelete;
-
-//business_cards_list用のjsコード
+//business_cards_list用のselect-box、table表示のjsコード
 var selectElement = document.getElementById('select-division');
 
 //セレクトボックスの値が変更された時に呼び出される関数

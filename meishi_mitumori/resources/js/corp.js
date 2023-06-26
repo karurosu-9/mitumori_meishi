@@ -1,4 +1,22 @@
-//addビュー用のjsコード
+//index、show用のedit、deleteボタンのclickアクションのjsコード
+export function editCorp(url) {
+    location.href = url;
+}
+
+window.editCorp = editCorp;
+
+export function deleteCorp(event, url) {
+    //会社名の値の取得
+    let corpName = event.target.getAttribute('data-corp-name');
+    if (confirm('会社名『 ' + corpName + ' 』を本当に削除してよろしいですか？')) {
+        location.href = url;
+    }
+}
+
+window.deleteCorp = deleteCorp;
+
+
+//addビュー用のフォーム入力時のjsコード
 export function addCheckMessage() {
     //未記入の項目があった場合、その項目名を入れる変数
     let emptyFields = []
@@ -40,17 +58,8 @@ export function addCheckMessage() {
 
 window.addCheckMessage = addCheckMessage;
 
-//show用のjsコード
-export function confirmDelete()
-{
-    if (confirm(`『名刺No. <?php echo $corp->id?> 』の名刺データを削除してもよろしいですか？`)) {
-        location.href = "{{ route('corp.delete'), ['corp' => $corp] }}";
-    }
-}
 
-window.confirmDelete = confirmDelete;
-
-//business_cards_list用のjsコード
+//business_cards_list用のselect-box、table表示のjsコード
 let selectElement = document.getElementById('select-division');
 
     //セレクトボックスの値が変更された時に呼び出される関数
