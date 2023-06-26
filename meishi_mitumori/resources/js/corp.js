@@ -49,3 +49,42 @@ export function confirmDelete()
 }
 
 window.confirmDelete = confirmDelete;
+
+//business_cards_list用のjsコード
+let selectElement = document.getElementById('select-division');
+
+    //セレクトボックスの値が変更された時に呼び出される関数
+    selectElement.addEventListener('change', function() {
+        let selectedDivision = this.value;
+
+        //部署ごとに表示する名刺データの処理をする関数
+        displayBusinessCards(selectedDivision);
+    })
+
+    function displayBusinessCards(selectedDivision) {
+        //全ての<tr>の要素を取得
+        let tableRows = document.querySelectorAll('#business-cards-table tr');
+
+        //最初の<tr>行は<th>の値になるだけなので、取得しない。それ以降の<tr>行をデータがあるだけ取得
+        for (let i = 1; i < tableRows.length; i++) {
+            /*変数rowには
+                <tr>
+                    <td>～</td>から
+                    <td>～</td>までを1行とする値を行ごとにrowに格納
+                </tr>
+            */
+            let row = tableRows[i];
+            //1行の3番目の<td>の値({{ $card->division }})を取得
+            let division = row.cells[2].textContent;
+
+            if (selectedDivision === '') {
+                row.style.display = 'table-row';
+            } else if (division === selectedDivision) {
+                row.style.display = 'table-row';
+            } else {
+                row.style.display = 'none';
+            }
+        }
+    }
+
+    window.displayBusinessCards = displayBusinessCards;
