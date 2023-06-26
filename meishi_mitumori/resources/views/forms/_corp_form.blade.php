@@ -17,7 +17,7 @@
         <th>郵便番号</th>
         <td>
             <span class="p-country-name" style="display:none;">Japan</span>
-            〒<input type="text" id="postal_code" class="p-postal-code" size="7" maxlength="7"
+            〒<input type="text" style="width: 150px" id="postal_code" class="p-postal-code" size="7" maxlength="7"
                 name="postal_code" value="{{ $action === 'add' ? old('postal_code') : $corp->postal_code }}">
             <br>
         </td>
