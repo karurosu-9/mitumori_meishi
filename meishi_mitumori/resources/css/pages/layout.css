@@ -25,3 +25,11 @@ li.post-error-list {
     color: red;
     font-weight: bold;
 }
+
+button {
+    display: inline-block;
+}
+
+.select-box {
+    width: 300px;
+}
