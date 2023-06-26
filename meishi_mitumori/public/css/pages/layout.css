@@ -11,6 +11,7 @@ table {
     white-space: nowrap;
     border-width: 2px;
     border-collapse: collapse;
+    text-align: center;
 }
 
 th {
