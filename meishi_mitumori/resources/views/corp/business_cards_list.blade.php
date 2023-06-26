@@ -42,6 +42,7 @@
             </tr>
         @endforeach
     </table>
+    <p class="no-data-message" style="display: none">※名刺データはありません。</p>
     <br>
     <br>
     <button onclick="history.back()">戻る</button>
