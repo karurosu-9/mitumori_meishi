@@ -18,6 +18,8 @@
         <button onclick="location.href='{{ route('corp.list') }}'">戻る</button>
         <input type="submit" value="登録">
     </div>
+    <br>
+    <br>
 
     <script src="https://yubinbango.github.io/yubinbango/yubinbango.js" charset="UTF-8"></script>
     <script src="{{ asset('js/corp.js') }}"></script>

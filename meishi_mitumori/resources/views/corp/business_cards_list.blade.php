@@ -45,5 +45,7 @@
     <br>
     <br>
     <button onclick="history.back()">戻る</button>
+    <br>
+    <br>
 
     <script src="{{ asset('js/corp.js') }}"></script>
