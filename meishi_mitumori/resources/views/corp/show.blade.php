@@ -12,6 +12,9 @@
 <h1>【 {{ $corp->corp_name }}-詳細 】</h1>
 <br>
 <br>
+<button onclick="location.href='{{ route('corp.businessCardsList', ['corp' => $corp]) }}'">名刺一覧へ</button>
+<br>
+<br>
 <table cellpadding="1">
     <tr>
         <th>会社名</th>
@@ -32,4 +35,8 @@
 </table>
 <br>
 <br>
-<button onclick="location.href='{{ route('corp.list') }}'">戻る</button>
+<div class="button">
+    <button onclick="location.href='{{ route('corp.edit', ['corp' => $corp]) }}'">編集</button>
+    <button onclick="confirmDelete('{{ route('corp.delete', ['corp' => $corp]) }}')">削除</button>
+</div>
+<script src="{{ asset('js/corp.js') }}"></script>

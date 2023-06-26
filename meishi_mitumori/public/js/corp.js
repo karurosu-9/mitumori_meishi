@@ -10,12 +10,12 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   addCheckMessage: () => (/* binding */ addCheckMessage)
+/* harmony export */   addCheckMessage: () => (/* binding */ addCheckMessage),
+/* harmony export */   confirmDelete: () => (/* binding */ confirmDelete)
 /* harmony export */ });
 //addビュー用のjsコード
 function addCheckMessage() {
-  var i = "あいうえお";
-  console.log(i);
+  //未記入の項目があった場合、その項目名を入れる変数
   var emptyFields = [];
   var corpNameElement = document.getElementById('corp_name');
   var corpName = corpNameElement ? corpNameElement.value : '';
@@ -37,6 +37,8 @@ function addCheckMessage() {
   if (tel === '') {
     emptyFields.push('電話番号');
   }
+
+  //未記入の項目のあった時の処理
   if (emptyFields.length > 0) {
     var emptyFieldsString = emptyFields.join(',');
     alert('未記入の欄があります。:' + emptyFieldsString);
@@ -46,6 +48,14 @@ function addCheckMessage() {
   return msg;
 }
 window.addCheckMessage = addCheckMessage;
+
+//show用のjsコード
+function confirmDelete() {
+  if (confirm("\u300E\u540D\u523ANo. <?php echo $corp->id?> \u300F\u306E\u540D\u523A\u30C7\u30FC\u30BF\u3092\u524A\u9664\u3057\u3066\u3082\u3088\u308D\u3057\u3044\u3067\u3059\u304B\uFF1F")) {
+    location.href = "{{ route('corp.delete'), ['corp' => $corp] }}";
+  }
+}
+window.confirmDelete = confirmDelete;
 
 /***/ }),
 
