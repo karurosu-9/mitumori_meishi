@@ -23,7 +23,11 @@ class CorpController extends Controller
     {
         $businessCards = $corp->businessCards;
 
+        //一意の部署名の取得
+        $uniqueDivisions = $businessCards->pluck('division')->unique();
+
         $data = [
+            'uniqueDivisions' => $uniqueDivisions,
             'businessCards' => $businessCards,
             'corp' => $corp,
         ];
@@ -57,7 +61,7 @@ class CorpController extends Controller
         return redirect()->route('corp.show');
     }
 
-    public function edit(Corp $corp, $id)
+    public function edit(Corp $corp)
     {
         $data = [
             'corp' => $corp,
