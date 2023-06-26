@@ -37,10 +37,12 @@ class CorpController extends Controller
 
     public function show(Corp $corp)
     {
+        $businessCard = $corp->businessCards->first();
         $postalCode = substr($corp->postal_code, 0, 3) . '-' . substr($corp->postal_code, 3);
 
         $data = [
             'corp' => $corp,
+            'businessCard' => $businessCard,
             'postalCode' => $postalCode,
         ];
 
