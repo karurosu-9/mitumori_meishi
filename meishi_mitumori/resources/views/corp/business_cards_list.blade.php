@@ -7,7 +7,7 @@
     <br>
     <br>
     <br>
-    <h1>【 名詞一覧 】</h1>
+    <h1>【 名刺一覧 】</h1>
     <br>
     <br>
     <select id="select-division" class="select-box">
