@@ -9,6 +9,6 @@ class BusinessCardController extends Controller
 {
     public function add()
     {
-       return view('businessCard.add');
+       return view('business_card.add');
     }
 }
