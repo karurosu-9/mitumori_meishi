@@ -10,6 +10,11 @@
     <h1>【 会社一覧 】</h1>
     <br>
     <br>
+    <div class="add_button">
+        <button onclick="location.href='{{ route('corp.add') }}'">名刺登録</button>
+    </div>
+    <br>
+    <br>
     <table cellpadding="1">
         <tr>
             <th>会社名</th>
