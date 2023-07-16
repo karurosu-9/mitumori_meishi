@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CorpController;
+use App\Http\Controllers\BusinessCardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,3 +26,5 @@ Route::get('corp/add', [CorpController::class, 'add'])->name('corp.add');
 Route::post('corp/add', [CorpController::class, 'create']);
 Route::get('corp/edit/{corp}', [CorpController::class, 'edit'])->name('corp.edit');
 Route::get('corp/delete/{corp}', [CorpController::class, 'delete'])->name('corp.delete');
+
+Route::get('businessCard/add', [BusinessCardController::class, 'add'])->name('businessCard.add');
