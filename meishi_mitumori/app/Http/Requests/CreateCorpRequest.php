@@ -37,7 +37,7 @@ class CreateCorpRequest extends FormRequest
             'corp_name.required' => '会社名は必ず入力してください。',
             'corp_name.max' => '会社名は255文字以下で入力してください。',
             'corp_name.unique' => '既に登録済みの会社名です。',
-            'corp_name.regex' => '会社名には数字のみや、記号を含めることはできません。',
+            'corp_name.regex' => '会社名には数字のみや、記号のみでの登録はできません。',
             'postal_code.required' => '郵便番号は必ず入力してください。',
             'postal_code.regex' => '郵便番号はハイフンを入れずに半角数字で入力してください。',
             'address.required' => '住所は必ず入力してください。',
