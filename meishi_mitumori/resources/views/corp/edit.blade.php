@@ -1,6 +1,6 @@
 @extends('layouts.layout')
 
-@section('title', '会社-詳細')
+@section('title', '会社-編集')
 
 @section('content')
     <br>
