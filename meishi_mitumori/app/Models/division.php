@@ -5,12 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class division extends Model
+class Division extends Model
 {
     use HasFactory;
 
-    protected $table = 'division';
-    protected $fillable = ['division'];
+    protected $table = 'divisions';
+    protected $fillable = ['corp_id', 'division_name'];
 
     public function corp()
     {
