@@ -11,7 +11,7 @@
         </tr>
     </table>
     <div class="button">
-        <button type="button" onclick="location.href='{{ $backUrl }}'"></button>
+        <button type="button" onclick="location.href='{{ $backUrl }}'">{{ $backButtonLabel }}</button>
         <input type="submit" value="{{ $submitButtonLabel }}">
     </div>
 </form>
