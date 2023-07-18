@@ -32,12 +32,12 @@ window.deleteCorp = deleteCorp;
 function checkMessage() {
   //未記入の項目があった場合、その項目名を入れる変数
   var emptyFields = [];
-  var corpNameElement = document.getElementById("corp_name");
+  var corpNameElement = document.getElementById("corp-name");
   var corpName = corpNameElement ? corpNameElement.value : "";
   if (corpName === "") {
     emptyFields.push("会社名");
   }
-  var postalCodeElement = document.getElementById("postal_code");
+  var postalCodeElement = document.getElementById("postal-code");
   var postalCode = postalCodeElement ? postalCodeElement.value : "";
   if (postalCode === "") {
     emptyFields.push("郵便番号");
