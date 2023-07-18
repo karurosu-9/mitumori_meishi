@@ -9,15 +9,11 @@
     <br>
     <h1>【 会社-編集 】</h1>
     <br>
-    <br>
-    <form action="{{ route('corp.edit', $corp) }}" class="h-adr" method="POST" onsubmit="return checkMessage()">
-    @include('forms._corp_form', ['action' => 'edit'])
-    <br>
-    <br>
-    <div class="button">
-        <button type="button" onclick="location.href='{{ route('corp.list') }}'">戻る</button>
-        <input type="submit" value="編集">
-    </div>
+    @include('forms._corp_form', [
+        'action' => 'edit',
+        'backUrl' => route('corp.show'),
+        'submitButtonLabel' => '編集',
+    ])
     <br>
     <br>
 

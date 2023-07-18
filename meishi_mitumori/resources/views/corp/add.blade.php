@@ -10,14 +10,11 @@
     <h1>【 会社-登録 】</h1>
     <br>
     <br>
-    <form action="{{ route('corp.add') }}" class="h-adr" method="POST" onsubmit="return checkMessage()">
-    @include('forms._corp_form', ['action' => 'add'])
-    <br>
-    <br>
-    <div class="button">
-        <button type="button" onclick="location.href='{{ route('corp.list') }}'">戻る</button>
-        <input type="submit" value="登録">
-    </div>
+    @include('forms._corp_form', [
+        'action' => 'add',
+        'backUrl' => route('corp.list'),
+        'submitButtonLabel' => '登録',
+    ])
     <br>
     <br>
 
