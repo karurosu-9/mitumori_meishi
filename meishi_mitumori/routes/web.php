@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CorpController;
 use App\Http\Controllers\BusinessCardController;
+use App\Http\Controllers\DivisionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +19,7 @@ use App\Http\Controllers\BusinessCardController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+//corp関係のルーティング
 Route::get('corp', [CorpController::class, 'index'])->name('corp.list');
 Route::get('corp/business_cards_list/{corp}', [CorpController::class, 'businessCardsList'])->name('corp.businessCardsList');
 Route::get('corp/show/{corp}', [CorpController::class, 'show'])->name('corp.show');
@@ -27,5 +28,9 @@ Route::post('corp/add', [CorpController::class, 'create']);
 Route::get('corp/edit/{corp}', [CorpController::class, 'edit'])->name('corp.edit');
 Route::get('corp/delete/{corp}', [CorpController::class, 'delete'])->name('corp.delete');
 
+//business-card関係のルーティング
 Route::get('business-card/add', [BusinessCardController::class, 'add'])->name('business-card.add');
 Route::post('business-card/add', [BusinessCardController::class, 'create']);
+
+//division関係のルーティング
+Route::get('division/add', [DivisionController::class, 'add'])->name('division.add');
