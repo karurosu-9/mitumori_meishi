@@ -20,7 +20,7 @@ class BusinessCardController extends Controller
         return view('business_card.add', $data);
     }
 
-    public function create()
+    public function create(CreateBusinessCardRequest $request)
     {
     }
 }
