@@ -10,7 +10,7 @@
     <h1>【 会社-編集 】</h1>
     <br>
     <br>
-    <form action="{{ route('corp.edit', $corp) }}" class="h-adr" method="POST" onsubmit="return addCheckMessage()">
+    <form action="{{ route('corp.edit', $corp) }}" class="h-adr" method="POST" onsubmit="return checkMessage()">
     @include('forms._corp_form', ['action' => 'edit'])
     <br>
     <br>

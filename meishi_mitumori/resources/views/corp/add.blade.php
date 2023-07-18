@@ -10,7 +10,7 @@
     <h1>【 会社-登録 】</h1>
     <br>
     <br>
-    <form action="{{ route('corp.add') }}" class="h-adr" method="POST" onsubmit="return addCheckMessage()">
+    <form action="{{ route('corp.add') }}" class="h-adr" method="POST" onsubmit="return checkMessage()">
     @include('forms._corp_form', ['action' => 'add'])
     <br>
     <br>

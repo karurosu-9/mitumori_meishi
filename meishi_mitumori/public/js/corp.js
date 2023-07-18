@@ -10,7 +10,7 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   addCheckMessage: () => (/* binding */ addCheckMessage),
+/* harmony export */   checkMessage: () => (/* binding */ checkMessage),
 /* harmony export */   deleteCorp: () => (/* binding */ deleteCorp),
 /* harmony export */   editCorp: () => (/* binding */ editCorp)
 /* harmony export */ });
@@ -28,8 +28,8 @@ function deleteCorp(event, url) {
 }
 window.deleteCorp = deleteCorp;
 
-//addビュー用のフォーム入力時のjsコード
-function addCheckMessage() {
+//add, editビュー用のフォーム入力時のjsコード
+function checkMessage() {
   //未記入の項目があった場合、その項目名を入れる変数
   var emptyFields = [];
   var corpNameElement = document.getElementById("corp_name");
