@@ -11,8 +11,8 @@
     <br>
     <br>
     @include('form._division_form', [
-        'action' => 'edit',
-        'backUrl' => route('corp.show'),
+        'action' => route('division.edit'),
+        'backUrl' => route('corp.show', $corp),
         'submitButtonLabel' => '編集',
     ])
     <br>
