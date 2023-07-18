@@ -36,7 +36,7 @@
 <br>
 <br>
 <div class="button">
-    <button onclick="location.href='{{ route('corp.edit', ['corp' => $corp]) }}'">編集</button>
-    <button onclick="confirmDelete('{{ route('corp.delete', ['corp' => $corp]) }}')">削除</button>
+    <button onclick="editCorp('{{ route('corp.edit', $corp) }}')">編集</button>
+    <button onclick="deleteCorp('{{ route('corp.delete', $corp) }}')">削除</button>
 </div>
 <script src="{{ asset('js/corp.js') }}"></script>
