@@ -71,4 +71,10 @@ class CorpController extends Controller
 
         return view('corp.edit', $data);
     }
+
+    public function delete(Corp $corp)
+    {
+        $corp->delete();
+        return view('corp.index');
+    }
 }
