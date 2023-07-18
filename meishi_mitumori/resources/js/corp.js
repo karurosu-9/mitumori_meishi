@@ -22,13 +22,13 @@ export function checkMessage() {
     //未記入の項目があった場合、その項目名を入れる変数
     let emptyFields = [];
 
-    let corpNameElement = document.getElementById("corp_name");
+    let corpNameElement = document.getElementById("corp-name");
     let corpName = corpNameElement ? corpNameElement.value : "";
     if (corpName === "") {
         emptyFields.push("会社名");
     }
 
-    let postalCodeElement = document.getElementById("postal_code");
+    let postalCodeElement = document.getElementById("postal-code");
     let postalCode = postalCodeElement ? postalCodeElement.value : "";
     if (postalCode === "") {
         emptyFields.push("郵便番号");
