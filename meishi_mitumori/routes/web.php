@@ -27,5 +27,5 @@ Route::post('corp/add', [CorpController::class, 'create']);
 Route::get('corp/edit/{corp}', [CorpController::class, 'edit'])->name('corp.edit');
 Route::get('corp/delete/{corp}', [CorpController::class, 'delete'])->name('corp.delete');
 
-Route::get('business_card/add', [BusinessCardController::class, 'add'])->name('businessCard.add');
-Route::post('business_card/add', [BusinessCardController::class, 'create']);
+Route::get('business-card/add', [BusinessCardController::class, 'add'])->name('business-card.add');
+Route::post('business-card/add', [BusinessCardController::class, 'create']);
