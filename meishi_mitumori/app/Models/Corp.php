@@ -19,4 +19,9 @@ class Corp extends Model
     {
         return $this->hasMany(BusinessCard::class);
     }
+
+    public function division()
+    {
+        return $this->hasMany(Division::class);
+    }
 }
