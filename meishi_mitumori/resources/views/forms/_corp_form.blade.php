@@ -7,9 +7,6 @@
         </ul>
     @endif
 </div>
-<select>
-    
-</select>
 <table cellpadding="1">
     @csrf
     <tr>
