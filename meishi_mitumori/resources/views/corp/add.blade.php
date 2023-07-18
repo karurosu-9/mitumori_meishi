@@ -15,7 +15,7 @@
     <br>
     <br>
     <div class="button">
-        <button onclick="location.href='{{ route('corp.list') }}'">戻る</button>
+        <button type="button" onclick="location.href='{{ route('corp.list') }}'">戻る</button>
         <input type="submit" value="登録">
     </div>
     <br>
