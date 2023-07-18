@@ -57,7 +57,7 @@ export function checkMessage() {
     return msg;
 }
 
-window.addCheckMessage = addCheckMessage;
+window.checkMessage = checkMessage;
 
 //business_cards_list用のselect-box、table表示のjsコード
 let selectElement = document.getElementById("select-division");

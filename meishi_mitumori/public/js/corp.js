@@ -62,7 +62,7 @@ function checkMessage() {
   var msg = confirm("この内容で登録してもよろしいですか？");
   return msg;
 }
-window.addCheckMessage = addCheckMessage;
+window.checkMessage = checkMessage;
 
 //business_cards_list用のselect-box、table表示のjsコード
 var selectElement = document.getElementById("select-division");
