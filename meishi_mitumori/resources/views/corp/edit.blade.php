@@ -10,7 +10,7 @@
     <h1>【 会社-編集 】</h1>
     <br>
     @include('forms._corp_form', [
-        'action' => 'edit',
+        'action' => route('corp.edit'),
         'backUrl' => route('corp.show'),
         'submitButtonLabel' => '編集',
     ])
