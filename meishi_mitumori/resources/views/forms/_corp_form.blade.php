@@ -7,7 +7,7 @@
         </ul>
     @endif
 </div>
-<form class="h-adr" action="{{ $action }}" method="POST" onsubmit="return checkMessage()">
+<form class="h-adr" action="{{ $action }}" method="POST" onsubmit="return formCheckMessage()">
     <table cellpadding="1">
         @csrf
         <tr>

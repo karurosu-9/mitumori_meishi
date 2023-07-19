@@ -10,9 +10,9 @@
 
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   checkMessage: () => (/* binding */ checkMessage),
 /* harmony export */   deleteCorp: () => (/* binding */ deleteCorp),
-/* harmony export */   editCorp: () => (/* binding */ editCorp)
+/* harmony export */   editCorp: () => (/* binding */ editCorp),
+/* harmony export */   formCheckMessage: () => (/* binding */ formCheckMessage)
 /* harmony export */ });
 //index、show用のedit、deleteボタンのclickアクションのjsコード
 function editCorp(url) {
@@ -29,7 +29,7 @@ function deleteCorp(event, url) {
 window.deleteCorp = deleteCorp;
 
 //add, editビュー用のフォーム入力時のjsコード
-function checkMessage() {
+function formCheckMessage() {
   //未記入の項目があった場合、その項目名を入れる変数
   var emptyFields = [];
   var corpNameElement = document.getElementById("corp-name");

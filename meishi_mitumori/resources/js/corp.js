@@ -18,7 +18,7 @@ export function deleteCorp(event, url) {
 window.deleteCorp = deleteCorp;
 
 //add, editビュー用のフォーム入力時のjsコード
-export function checkMessage() {
+export function formCheckMessage() {
     //未記入の項目があった場合、その項目名を入れる変数
     let emptyFields = [];
 
