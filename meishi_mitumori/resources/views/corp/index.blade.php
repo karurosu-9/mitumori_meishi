@@ -10,11 +10,6 @@
     <h1>【 会社一覧 】</h1>
     <br>
     <br>
-    <div class="add_button">
-        <button onclick="location.href='{{ route('corp.add') }}'">名刺登録</button>
-    </div>
-    <br>
-    <br>
     <table cellpadding="1">
         <tr>
             <th>会社名</th>
@@ -25,13 +20,14 @@
         <tr>
             @foreach ($corps as $corp)
         <tr>
-            <td><a href="{{ route('corp.businessCardsList', ['corp' => $corp]) }}">{{ $corp->corp_name }}</a></td>
+            <td><a href="{{ route('corp.show', ['corp' => $corp]) }}">{{ $corp->corp_name }}</a></td>
             <td>{{ $corp->address }}</td>
             <td>{{ $corp->tel }}</td>
             <td>
                 <div class="button">
-                    <button onclick="editCorp('{{ route('corp.edit', $corp) }}')">編集</button>
-                    <button onclick="deleteCorp(event, '{{ route('corp.delete', $corp) }}')" data-corp-name="{{ $corp->corp_name }}">削除</button>
+                    <button onclick="editCorp('{{ route('corp.edit', ['corp' => $corp]) }}')">編集</button>
+                    <button onclick="deleteCorp(event, '{{ route('corp.delete', ['corp' => $corp]) }}')"
+                        data-corp-name="{{ $corp->corp_name }}">削除</button>
                 </div>
             </td>
         </tr>
