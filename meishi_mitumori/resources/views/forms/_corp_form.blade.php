@@ -12,16 +12,16 @@
         @csrf
         <tr>
             <th>会社名</th>
-            <td><input type="text" id='corp-name' name="corpName"
-                    value="{{ $action === 'add' ? old('corpName') : $corp->corp_name }}"></td>
+            <td><input type="text" id='corp-name' name="corp_name"
+                    value="{{ $action === 'add' ? old('corp_name') : $corp->corp_name }}"></td>
         </tr>
         <tr>
             <th>郵便番号</th>
             <td>
                 <span class="p-country-name" style="display:none;">Japan</span>
                 〒<input type="text" style="width: 150px" id="postal-code" class="p-postal-code" size="7"
-                    maxlength="7" name="postalCode"
-                    value="{{ $action === 'add' ? old('postalCode') : $corp->postal_code }}">
+                    maxlength="7" name="postal_code"
+                    value="{{ $action === 'add' ? old('postal_code') : $corp->postal_code }}">
                 <br>
             </td>
         </tr>
@@ -42,6 +42,6 @@
     <br>
     <div class="button">
         <button type="button" onclick="location.href='{{ $backUrl }}'">会社一覧へ戻る</button>
-        <input type="submit" value="{{ $submitButtonLabel }}">
+        <input type="submit" value="登録">
     </div>
 </form>
