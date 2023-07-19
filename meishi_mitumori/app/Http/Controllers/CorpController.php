@@ -49,9 +49,13 @@ class CorpController extends Controller
         return view('corp.show', $data);
     }
 
-    public function add()
+    public function add(Corp $corp)
     {
-        return view('corp.add');
+        $data = [
+            'corp' => $corp,
+        ];
+
+        return view('corp.add', $data);
     }
 
     public function create(CreateCorpRequest $request)
