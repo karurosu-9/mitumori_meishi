@@ -21,7 +21,7 @@ Route::get('/', function () {
 });
 //corp関係のルーティング
 Route::get('corp', [CorpController::class, 'index'])->name('corp.list');
-Route::get('corp/business_cards_list/{corp}', [CorpController::class, 'businessCardsList'])->name('corp.businessCardsList');
+Route::get('corp/business-cards-list/{corp}', [CorpController::class, 'businessCardsList'])->name('corp.businessCardsList');
 Route::get('corp/show/{corp}', [CorpController::class, 'show'])->name('corp.show');
 Route::get('corp/add', [CorpController::class, 'add'])->name('corp.add');
 Route::post('corp/add', [CorpController::class, 'create']);
@@ -31,6 +31,3 @@ Route::get('corp/delete/{corp}', [CorpController::class, 'delete'])->name('corp.
 //business-card関係のルーティング
 Route::get('business-card/add', [BusinessCardController::class, 'add'])->name('business-card.add');
 Route::post('business-card/add', [BusinessCardController::class, 'create']);
-
-//division関係のルーティング
-Route::get('division/add', [DivisionController::class, 'add'])->name('division.add');
