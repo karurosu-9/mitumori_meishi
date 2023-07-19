@@ -9,15 +9,16 @@ use App\Models\Corp;
 
 class BusinessCardController extends Controller
 {
-    public function add()
+    public function add(Corp $corp)
     {
-        $corps = Corp::all();
+        $businessCards = $corp->businessCards;
 
         $data = [
-            'corps' => $corps,
+            'businessCards' => $businessCards,
+            'corp' => $corp,
         ];
 
-        return view('business_card.add', $data);
+        return view('business-card.add', $data);
     }
 
     public function create(CreateBusinessCardRequest $request)
