@@ -10,6 +10,9 @@
     <h1>【 会社一覧 】</h1>
     <br>
     <br>
+    <button type="button" onclick="location.href='{{ route('corp.add') }}'">会社登録</button>
+    <br>
+    <br>
     <table cellpadding="1">
         <tr>
             <th>会社名</th>
