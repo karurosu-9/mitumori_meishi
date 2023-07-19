@@ -12,7 +12,6 @@
     @include('forms._corp_form', [
         'action' => route('corp.edit', ['corp' => $corp]),
         'backUrl' => route('corp.show', ['corp' => $corp]),
-        'submitButtonLabel' => '編集',
     ])
     <br>
     <br>

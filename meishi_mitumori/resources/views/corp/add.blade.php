@@ -13,7 +13,6 @@
     @include('forms._corp_form', [
         'action' => route('corp.add'),
         'backUrl' => route('corp.list'),
-        'submitButtonLabel' => '登録',
     ])
     <br>
     <br>
