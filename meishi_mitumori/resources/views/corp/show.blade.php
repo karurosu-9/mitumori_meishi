@@ -8,11 +8,13 @@
 <br>
 <br>
 <br>
-<br>
 <h1>【 {{ $corp->corp_name }}-詳細 】</h1>
 <br>
 <br>
-<button onclick="location.href='{{ route('corp.businessCardsList', ['corp' => $corp]) }}'">名刺一覧へ</button>
+<div class="button">
+    <button onclick="location.href='{{ route('corp.businessCardsList', ['corp' => $corp]) }}'">名刺一覧</button>
+    <button onclick="location.href='{{ route('corp.add') }}'">名刺登録</button>
+</div>
 <br>
 <br>
 <table cellpadding="1">
@@ -36,7 +38,8 @@
 <br>
 <br>
 <div class="button">
-    <button onclick="editCorp('{{ route('corp.edit', $corp) }}')">編集</button>
-    <button onclick="deleteCorp('{{ route('corp.delete', $corp) }}')">削除</button>
+    <button onclick="editCorp('{{ route('corp.edit', ['corp' => $corp]) }}')">編集</button>
+    <button onclick="deleteCorp(event, '{{ route('corp.delete', ['corp' => $corp]) }}')"
+        data-corp-name='{{ $corp->corp_name }}'>削除</button>
 </div>
 <script src="{{ asset('js/corp.js') }}"></script>
