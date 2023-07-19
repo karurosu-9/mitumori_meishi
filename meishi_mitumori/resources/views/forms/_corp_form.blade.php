@@ -41,7 +41,7 @@
     <br>
     <br>
     <div class="button">
-        <button type="button" onclick="location.href='{{ $backUrl }}'">所属部署一覧へ戻る</button>
+        <button type="button" onclick="location.href='{{ $backUrl }}'">会社一覧へ戻る</button>
         <input type="submit" value="{{ $submitButtonLabel }}">
     </div>
 </form>
