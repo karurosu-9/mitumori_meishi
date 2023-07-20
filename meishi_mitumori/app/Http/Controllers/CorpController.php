@@ -32,7 +32,7 @@ class CorpController extends Controller
             'corp' => $corp,
         ];
 
-        return view('corp.business_cards_list', $data);
+        return view('corp.business-cards-list', $data);
     }
 
     public function show(Corp $corp)
