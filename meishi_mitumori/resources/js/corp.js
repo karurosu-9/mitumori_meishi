@@ -59,7 +59,7 @@ export function formCheckMessage() {
 
 window.checkMessage = checkMessage;
 
-//business_cards_list用のselect-box、table表示のjsコード
+//business-cards-list用のselect-box、table表示のjsコード
 let selectElement = document.getElementById("select-division");
 
 //セレクトボックスの値が変更された時に呼び出される関数
@@ -70,6 +70,7 @@ selectElement.addEventListener("change", function () {
     displayBusinessCards(selectedDivision);
 });
 
+//セレクトボックスの値を取得して絞り込み検索をする関数
 function displayBusinessCards(selectedDivision) {
     let tableRows = document.querySelectorAll('#business-cards-table tr');
     let noDataMessage = document.querySelector('.no-data-message');

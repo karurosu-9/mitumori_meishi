@@ -64,7 +64,7 @@ function formCheckMessage() {
 }
 window.checkMessage = checkMessage;
 
-//business_cards_list用のselect-box、table表示のjsコード
+//business-cards-list用のselect-box、table表示のjsコード
 var selectElement = document.getElementById("select-division");
 
 //セレクトボックスの値が変更された時に呼び出される関数
@@ -74,6 +74,8 @@ selectElement.addEventListener("change", function () {
   //部署ごとに表示する名刺データの処理をする関数
   displayBusinessCards(selectedDivision);
 });
+
+//セレクトボックスの値を取得して絞り込み検索をする関数
 function displayBusinessCards(selectedDivision) {
   var tableRows = document.querySelectorAll('#business-cards-table tr');
   var noDataMessage = document.querySelector('.no-data-message');
