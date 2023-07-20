@@ -9,13 +9,15 @@ use App\Models\Corp;
 
 class BusinessCardController extends Controller
 {
-    public function add(Corp $corp)
+    public function add(Corp $corp, BusinessCard $businessCard)
     {
-        //会社に紐づく名刺を変数に格納
+        //会社に紐づく名刺の所属部署を変数に格納 ※セレクトボックスで使用する
         $businessCards = $corp->businessCards;
+        $distinctDivisionNames = $businessCards->pluck('division')->unique();
 
         $data = [
-            'businessCards' => $businessCards,
+            'distinctDivisionNames' => $distinctDivisionNames,
+            'businessCard' => $businessCard,
             'corp' => $corp,
         ];
 
