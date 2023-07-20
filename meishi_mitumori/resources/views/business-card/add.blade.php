@@ -6,11 +6,11 @@
     <br>
     <br>
     <br>
-    <h1>【 名刺-登録 】</h1>
+    <h1>【 {{ $corp->corp_name }} への名刺-登録 】</h1>
     <br>
     <br>
     @include('forms._businessCard_form', [
-        'action' => route('business-card.add', $corp),
+        'action' => route('business-card.create', $corp),
         'backUrl' => route('corp.list'),
     ])
     <br>
