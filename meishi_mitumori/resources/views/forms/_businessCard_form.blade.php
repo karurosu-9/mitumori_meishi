@@ -1,7 +1,7 @@
 <div class="error-messages">
-    @if ($errors->any());
+    @if ($errors->any())
         <ul>
-            @foreach ($errors as $error)
+            @foreach ($errors->all() as $error)
                 <li class="post-error-list">{{ $error }}</li>
             @endforeach
         </ul>
@@ -13,8 +13,11 @@
         <tr>
             <th>所属部署</th>
             <td>
+                <!-- corp_idは入力しなくても挿入される仕様 -->
+                <input type="hidden" name="corp_id" value="{{ $corp->id }}">
                 <select id="division" name="division" onchange="disableTextInput(this)">
-                    <option value="">-- 部署を選択してください。 --</option>
+                    <option value="">-- 部署を選択してください。--</option>
+                    <option value="">-- 部署を入力 --</option>
                     @foreach ($businessCards as $businessCard)
                         <option value="{{ $businessCard->division }}"
                             {{ $action === route('business-card.edit', $businessCard) && $businessCard->division === old('division') ? 'selected' : old('division') }}>

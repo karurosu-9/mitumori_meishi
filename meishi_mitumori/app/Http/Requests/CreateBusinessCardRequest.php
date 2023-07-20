@@ -24,9 +24,9 @@ class CreateBusinessCardRequest extends FormRequest
     public function rules()
     {
         return [
-            'corp_id' => 'required|unsignedBigInteger',
-            'division_id' => 'required|unsignedBigInteger',
-            'title' => 'string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠])[a-zA-Zぁ-んァ-ヶ一-龠0-9\-]+$/u',
+            'corp_id' => 'required|integer',
+            'division' => 'required|string',
+            'title' => 'nullable||max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠])[a-zA-Zぁ-んァ-ヶ一-龠0-9\-]+$/u',
             'employee_name' => 'required|string|max:50|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠])[a-zA-Zぁ-んァ-ヶ一-龠0-9\-]+$/u',
             'mobile_phone' => 'required|string|max:13|regex:/^[0-9]+$/u',
         ];
@@ -35,8 +35,8 @@ class CreateBusinessCardRequest extends FormRequest
     public function messages()
     {
         return [
-            'corp_id.required' => '会社を選択してください。',
-            'division_id.required' => '所属部署を選択してください。',
+            'corp_id.required' => '何かの不具合でcorp_idが自動指定されていません。',
+            'division.required' => '所属部署を選択してください。',
             'title.max' => '役職は100文字以内で記入してください。',
             'title.regex' => '役職の登録に数字のみや、記号のみでの登録はできません。',
             'employee_name.required' => '名前を入力してください。',
