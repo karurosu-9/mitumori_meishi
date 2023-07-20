@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('business_cards', function (Blueprint $table) {
             $table->id();
-            $table->integer('corp_id');
+            $table->unsignedBigInteger('corp_id');
             $table->string('division', 100);
             $table->string('title', 100)->nullable();
             $table->string('employee_name', 50);
