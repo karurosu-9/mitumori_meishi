@@ -80,7 +80,7 @@ window.formCheckMessage = formCheckMessage;
 function disableTextInput(selectElement) {
   var textInput = document.getElementById('divisionTextInput');
   var message = document.getElementById('divisionMessage');
-  if (selectElement !== "") {
+  if (selectElement.value !== "") {
     textInput.type = 'hidden';
     textInput.value = '';
     message.style.display = 'none';

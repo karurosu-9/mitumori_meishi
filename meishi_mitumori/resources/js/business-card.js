@@ -47,7 +47,7 @@ export function disableTextInput(selectElement) {
     let textInput = document.getElementById('divisionTextInput');
     let message = document.getElementById('divisionMessage');
 
-    if (selectElement !== "") {
+    if (selectElement.value !== "") {
         textInput.type = 'hidden';
         textInput.value = '';
         message.style.display = 'none';
