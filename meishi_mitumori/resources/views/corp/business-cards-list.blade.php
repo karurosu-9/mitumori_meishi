@@ -10,6 +10,11 @@
     <h1>【 {{ $corp->corp_name }} - 名刺一覧 】</h1>
     <br>
     <br>
+    <div class="button">
+        <button onclick="location.href='{{ route('corp.list') }}'">会社一覧へ戻る</button>
+        <button type="button" onclick="location.href='{{ route('business-card.add', ['corp' => $corp]) }}'">名刺登録</button>
+    </div>
+    <br>
     <select id="select-division" class="select-box">
         <option value='' selected>-- 部署の絞り込み --</option>
         @foreach ($uniqueDivisions as $division)
@@ -34,7 +39,7 @@
                 <td><a href="{{ route('corp.show', ['corp' => $corp]) }}">{{ $card->id }}</a></td>
                 <td>{{ $card->corp->corp_name }}</td>
                 <td>{{ $card->division }}</td>
-                <td style="text-align: center;">{{ !empty($card->title) ? $card->title : "ー" }}</td>
+                <td style="text-align: center;">{{ !empty($card->title) ? $card->title : 'ー' }}</td>
                 <td>{{ $card->employee_name }}</td>
                 <td>{{ $card->corp->address }}</td>
                 <td>{{ $card->corp->tel }}</td>
@@ -45,7 +50,6 @@
     <p class="no-data-message" style="display: none">※名刺データはありません。</p>
     <br>
     <br>
-    <button onclick="history.back()">戻る</button>
     <br>
     <br>
 
