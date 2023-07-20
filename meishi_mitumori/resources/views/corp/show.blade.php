@@ -43,4 +43,5 @@
     <button onclick="deleteCorp(event, '{{ route('corp.delete', ['corp' => $corp]) }}')"
         data-corp-name='{{ $corp->corp_name }}'>削除</button>
 </div>
+
 <script src="{{ asset('js/corp.js') }}"></script>
