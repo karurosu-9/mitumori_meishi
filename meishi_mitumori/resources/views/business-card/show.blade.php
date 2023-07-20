@@ -12,7 +12,7 @@
 <br>
 <br>
 <div class="button">
-    <button onclick="location.href='{{ route('corp.businessCardsList', ['corp' => $corp]) }}'">名刺一覧</button>
+    <button onclick="location.href='{{ route('corp.businessCardsList', ['corp' => $businessCard->corp->id]) }}'">名刺一覧</button>
 </div>
 <br>
 <br>
@@ -57,9 +57,9 @@
 <br>
 <br>
 <div class="button">
-    <button type="button" onclick="location.href='{{ route('corp.businessCardsList', ['corp' => $corp]) }}'">戻る</button>
-    <button onclick="editCorp('{{ route('business-card.edit', ['corp' => $corp]) }}')">編集</button>
-    <button onclick="deleteCorp(event, '{{ route('business-card.delete', ['corp' => $corp]) }}')"
+    <button type="button" onclick="location.href='{{ route('corp.businessCardsList', ['corp' => $businessCard->corp->id]) }}'">戻る</button>
+    <button onclick="editCorp('{{ route('business-card.edit', ['corp' => $businessCard->corp->id]) }}')">編集</button>
+    <button onclick="deleteCorp(event, '{{ route('business-card.delete', ['corp' => $businessCard->corp->id]) }}')"
         data-corp-name='{{ $businessCard->corp->corp_name }}'>削除</button>
 </div>
 
