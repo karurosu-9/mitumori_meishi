@@ -9,6 +9,18 @@ use App\Models\Corp;
 
 class BusinessCardController extends Controller
 {
+
+    public function show(Corp $corp, BusinessCard $businessCard)
+    {
+
+        $data = [
+            'businessCard' => $businessCard,
+            'corp' => $corp,
+        ];
+
+        return view('business-card.show', $data);
+    }
+
     public function add(Corp $corp, BusinessCard $businessCard)
     {
         //会社に紐づく名刺の所属部署を変数に格納 ※セレクトボックスで使用する

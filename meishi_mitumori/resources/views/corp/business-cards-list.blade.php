@@ -36,7 +36,7 @@
         </tr>
         @foreach ($businessCards as $card)
             <tr>
-                <td><a href="{{ route('business-card.show', ['businessCard' => $businessCard]) }}">{{ $card->id }}</a>
+                <td><a href="{{ route('business-card.show', ['businessCard' => $card->id]) }}">{{ $card->id }}</a>
                 </td>
                 <td>{{ $card->corp->corp_name }}</td>
                 <td>{{ $card->division }}</td>
