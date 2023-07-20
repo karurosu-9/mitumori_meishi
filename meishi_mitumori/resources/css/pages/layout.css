@@ -5,7 +5,7 @@ header {
     width: 100%;
     background-color: #ffffff;
     z-index: 100;
-  }
+}
 
 table {
     white-space: nowrap;
@@ -37,4 +37,10 @@ button {
 
 .add-button {
     margin-left: 500px;
+}
+
+.no-data-message {
+    display: none;
+    color: red;
+    font-weight: bold;
 }

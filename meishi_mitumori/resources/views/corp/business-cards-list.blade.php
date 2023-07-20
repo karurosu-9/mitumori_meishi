@@ -36,7 +36,8 @@
         </tr>
         @foreach ($businessCards as $card)
             <tr>
-                <td><a href="{{ route('corp.show', ['corp' => $corp]) }}">{{ $card->id }}</a></td>
+                <td><a href="{{ route('business-card.show', ['businessCard' => $businessCard]) }}">{{ $card->id }}</a>
+                </td>
                 <td>{{ $card->corp->corp_name }}</td>
                 <td>{{ $card->division }}</td>
                 <td style="text-align: center;">{{ !empty($card->title) ? $card->title : 'ー' }}</td>
@@ -47,7 +48,7 @@
             </tr>
         @endforeach
     </table>
-    <p class="no-data-message" style="display: none">※名刺データはありません。</p>
+    <p class="no-data-message">※名刺データはありません。</p>
     <br>
     <br>
     <br>
