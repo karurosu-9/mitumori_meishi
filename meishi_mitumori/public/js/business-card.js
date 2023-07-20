@@ -80,8 +80,14 @@ window.formCheckMessage = formCheckMessage;
 function disableTextInput(selectElement) {
   var textInput = document.getElementById('divisionTextInput');
   var message = document.getElementById('divisionMessage');
-  textInput.type = selectElement.value !== '' ? 'hidden' : 'text';
-  message.style.display = selectElement.value !== '' ? 'none' : 'inline';
+  if (selectElement !== "") {
+    textInput.type = 'hidden';
+    textInput.value = '';
+    message.style.display = 'none';
+  } else {
+    textInput.type = 'text';
+    message.style.display = 'inline';
+  }
 }
 window.disableTextInput = disableTextInput;
 /******/ })()

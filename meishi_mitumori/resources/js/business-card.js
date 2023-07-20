@@ -37,6 +37,7 @@ export function formCheckMessage() {
     let msg = confirm('この内容で登録してもよろしいですか？');
 
     return msg;
+
 }
 
 window.formCheckMessage = formCheckMessage;
@@ -46,9 +47,14 @@ export function disableTextInput(selectElement) {
     let textInput = document.getElementById('divisionTextInput');
     let message = document.getElementById('divisionMessage');
 
-    textInput.type = selectElement.value !== '' ? 'hidden' : 'text';
-    message.style.display = selectElement.value !== '' ? 'none' : 'inline';
-
+    if (selectElement !== "") {
+        textInput.type = 'hidden';
+        textInput.value = '';
+        message.style.display = 'none';
+    } else {
+        textInput.type = 'text';
+        message.style.display = 'inline';
+    }
 }
 
 window.disableTextInput = disableTextInput;
