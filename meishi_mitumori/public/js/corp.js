@@ -62,14 +62,14 @@ function formCheckMessage() {
   var msg = confirm("この内容で登録してもよろしいですか？");
   return msg;
 }
-window.checkMessage = checkMessage;
+window.formCheckMessage = formCheckMessage;
 
 //business-cards-list用のselect-box、table表示のjsコード
 var selectElement = document.getElementById("select-division");
 
 //セレクトボックスの値が変更された時に呼び出される関数
 selectElement.addEventListener("change", function () {
-  var selectedDivision = this.value;
+  var selectedDivision = selectElement.value;
 
   //部署ごとに表示する名刺データの処理をする関数
   displayBusinessCards(selectedDivision);

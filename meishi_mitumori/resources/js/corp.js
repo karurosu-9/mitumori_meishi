@@ -57,14 +57,14 @@ export function formCheckMessage() {
     return msg;
 }
 
-window.checkMessage = checkMessage;
+window.formCheckMessage = formCheckMessage;
 
 //business-cards-list用のselect-box、table表示のjsコード
 let selectElement = document.getElementById("select-division");
 
 //セレクトボックスの値が変更された時に呼び出される関数
 selectElement.addEventListener("change", function () {
-    let selectedDivision = this.value;
+    let selectedDivision = selectElement.value;
 
     //部署ごとに表示する名刺データの処理をする関数
     displayBusinessCards(selectedDivision);
