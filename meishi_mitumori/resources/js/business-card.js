@@ -47,13 +47,16 @@ export function disableTextInput(selectElement) {
     let textInput = document.getElementById('divisionTextInput');
     let message = document.getElementById('divisionMessage');
 
+    //セレクトボックスに値があるかどうかで、テキスト入力フォーム表示の切り替えを行う
     if (selectElement.value !== "") {
         textInput.type = 'hidden';
         message.style.display = 'none';
-        textInput.setAttribute('disabled', 'disabled');
+        //テキスト入力フォームにdisable属性を設定
+        textInput.setAttribute('disabled');
     } else {
         textInput.type = 'text';
         message.style.display = 'inline';
+        //テキスト入力フォームのdisable属性を解除
         textInput.removeAttribute('disabled');
     }
 }
