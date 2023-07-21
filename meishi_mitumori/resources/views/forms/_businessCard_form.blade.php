@@ -18,7 +18,7 @@
                 <select id="division" name="division" onchange="disableTextInput(this)">
                     <option value="">-- 部署を選択してください。--</option>
                     <option value="">-- 部署を入力する --</option>
-                    <!-- divisionの修復を避けた名刺 -->
+                    <!-- divisionの重複を避けた名刺 -->
                     @foreach ($uniqueBusinessCards as $businessCard)
                         <option value="{{ $businessCard->division }}"
                             {{ $businessCard && $action === route('business-card.edit', ['corp' => $corp]) && $businessCard->division === old('division') ? 'selected' : old('division') }}>
@@ -30,7 +30,8 @@
                     style="color: red; font-weight: bold; font-size: 10px;">※リストに部署がなければ、入力してください。</span>
                 <br>
                 <input type="text" name="division" id="divisionTextInput"
-                    value="{{ $action === route('business-card.edit', ['corp' => $corp]) ? $businessCard->division : old('division') }}">
+                    value="
+                    {{ $action === route('business-card.edit', ['corp' => $corp]) ? $businessCard->division : old('division') }}">
             </td>
         </tr>
         <tr>
