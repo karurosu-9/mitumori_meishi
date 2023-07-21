@@ -49,11 +49,12 @@ export function disableTextInput(selectElement) {
 
     if (selectElement.value !== "") {
         textInput.type = 'hidden';
-        textInput.value = '';
         message.style.display = 'none';
+        textInput.setAttribute('disabled', 'disabled');
     } else {
         textInput.type = 'text';
         message.style.display = 'inline';
+        textInput.removeAttribute('disabled');
     }
 }
 

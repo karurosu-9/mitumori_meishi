@@ -82,11 +82,12 @@ function disableTextInput(selectElement) {
   var message = document.getElementById('divisionMessage');
   if (selectElement.value !== "") {
     textInput.type = 'hidden';
-    textInput.value = '';
     message.style.display = 'none';
+    textInput.setAttribute('disabled', 'disabled');
   } else {
     textInput.type = 'text';
     message.style.display = 'inline';
+    textInput.removeAttribute('disabled');
   }
 }
 window.disableTextInput = disableTextInput;
