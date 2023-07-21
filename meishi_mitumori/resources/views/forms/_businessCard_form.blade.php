@@ -18,7 +18,8 @@
                 <select id="division" name="division" onchange="disableTextInput(this)">
                     <option value="">-- 部署を選択してください。--</option>
                     <option value="">-- 部署を入力する --</option>
-                    @foreach ($businessCards as $businessCard)
+                    <!-- divisionの修復を避けた名刺 -->
+                    @foreach ($uniqueBusinessCards as $businessCard)
                         <option value="{{ $businessCard->division }}"
                             {{ $businessCard && $action === route('business-card.edit', ['corp' => $corp]) && $businessCard->division === old('division') ? 'selected' : old('division') }}>
                             {{ $businessCard->division }}</option>

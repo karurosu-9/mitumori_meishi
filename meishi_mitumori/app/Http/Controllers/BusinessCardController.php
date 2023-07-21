@@ -25,9 +25,10 @@ class BusinessCardController extends Controller
     {
         //会社に紐づく名刺の所属部署を変数に格納 ※セレクトボックスで使用する
         $businessCards = $corp->businessCards;
-
+        //divisionの重複を避けた名刺だけを格納
+        $uniqueBusinessCards = $businessCards->unique('division');
         $data = [
-            'businessCards' => $businessCards,
+            'uniqueBusinessCards' => $uniqueBusinessCards,
             'businessCard' => $businessCard,
             'corp' => $corp,
         ];
