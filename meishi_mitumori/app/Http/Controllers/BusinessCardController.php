@@ -47,4 +47,17 @@ class BusinessCardController extends Controller
 
         return redirect()->route('corp.businessCardsList', ['corp' => $corp]);
     }
+
+    public function edit(Corp $corp, BusinessCard $businessCard)
+    {
+        $businessCards = $corp->businessCards;
+        $uniqueBusinessCards = $businessCards->unique('division');
+        $data = [
+            'uniqueBusinessCards' => $uniqueBusinessCards,
+            'corp' => $corp,
+            'businessCard' => $businessCard,
+        ];
+
+        return view('business-card.edit', $data);
+    }
 }
