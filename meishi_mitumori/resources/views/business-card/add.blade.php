@@ -12,6 +12,7 @@
     @include('forms._businessCard_form', [
         'action' => route('business-card.create', ['corp' => $corp]),
         'backUrl' => route('corp.businessCardsList', ['corp' => $corp]),
+        'buttonLabelValue' => '名刺一覧へ戻る',
     ])
     <br>
     <br>
