@@ -55,7 +55,7 @@
     <br>
     <br>
     <div class="button">
-        <button type="button" onclick="location.href='{{ $backUrl }}'">名刺一覧へ戻る</button>
+        <button type="button" onclick="location.href='{{ $backUrl }}'">{{ $buttonLabelValue }}</button>
         <input type="submit" value="登録">
     </div>
 </form>
