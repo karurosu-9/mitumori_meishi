@@ -41,11 +41,7 @@ class BusinessCardController extends Controller
         $businessCard = new BusinessCard;
 
         $form = $request->validated();
-        //var_dump($form);exit;
-
         $businessCard->fill($form)->save();
-
-
 
         return redirect()->route('corp.businessCardsList', ['corp' => $corp]);
     }
