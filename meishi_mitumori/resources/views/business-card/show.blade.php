@@ -40,7 +40,8 @@
     </tr>
     <tr>
         <th>郵便番号</th>
-        <td>{{ $businessCard->corp->postal_code }}</td>
+        <!-- ハイフン入りの郵便番号 -->
+        <td>〒{{ $postalCode }}</td>
     </tr>
     <tr>
         <th>住所</th>
@@ -58,8 +59,6 @@
 <br>
 <br>
 <div class="button">
-    <button type="button"
-        onclick="location.href='{{ route('corp.businessCardsList', ['corp' => $businessCard->corp->id]) }}'">名刺一覧へ戻る</button>
     <button onclick="editCorp('{{ route('business-card.edit', ['corp' => $businessCard->corp->id]) }}')">編集</button>
     <button onclick="deleteCorp(event, '{{ route('business-card.delete', ['corp' => $businessCard->corp->id]) }}')"
         data-corp-name='{{ $businessCard->corp->corp_name }}'>削除</button>
