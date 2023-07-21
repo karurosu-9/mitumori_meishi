@@ -21,7 +21,7 @@
                     <!-- divisionの重複を避けた名刺 -->
                     @foreach ($uniqueBusinessCards as $businessCard)
                         <option value="{{ $businessCard->division }}"
-                            {{ $businessCard && $action === route('business-card.edit', ['corp' => $corp]) && $businessCard->division === old('division') ? 'selected' : old('division') }}>
+                            {{ $businessCard && $action === route('business-card.edit', ['corp' => $corp, 'businessCard' => $businessCard]) && $businessCard->division === old('division') ? 'selected' : old('division') }}>
                             {{ $businessCard->division }}</option>
                     @endforeach
                 </select>
@@ -36,19 +36,19 @@
             <th>役職</th>
             <td><input type="text" id="title" name="title"
                     value="
-                    {{ isset($businessCard) && $action === route('business-card.edit', ['corp' => $corp]) ? $businessCard->title : old('title') }}">
+                    {{ $businessCard && $action === route('business-card.edit', ['corp' => $corp, 'businessCard' => $businessCard]) ? $businessCard->title : old('title') }}">
             </td>
         </tr>
         <tr>
             <th>名前</th>
             <td><input type="text" id="employee-name" name="employee_name"
-                    value="{{ $action === route('business-card.edit', ['corp' => $corp]) && $businessCard ? $businessCard->employee_name : old('employee_name') }}">
+                    value="{{ $action === route('business-card.edit', ['corp' => $corp, 'businessCard' => $businessCard]) && $businessCard ? $businessCard->employee_name : old('employee_name') }}">
             </td>
         </tr>
         <tr>
             <th>携帯番号</th>
             <td><input type="text" id="mobile-phone" name="mobile_phone"
-                    value="{{ $action === route('business-card.edit', ['corp' => $corp]) && $businessCard ? $businessCard->mobile_phone : old('mobile_phone') }}">
+                    value="{{ $action === route('business-card.edit', ['corp' => $corp, 'businessCard' => $businessCard]) && $businessCard ? $businessCard->mobile_phone : old('mobile_phone') }}">
             </td>
         </tr>
     </table>

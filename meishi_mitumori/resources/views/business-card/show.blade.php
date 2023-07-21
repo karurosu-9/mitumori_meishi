@@ -59,7 +59,8 @@
 <br>
 <br>
 <div class="button">
-    <button onclick="editCorp('{{ route('business-card.edit', ['corp' => $businessCard->corp->id]) }}')">編集</button>
+    <button
+        onclick="editCorp('{{ route('business-card.edit', ['corp' => $corp, 'businessCard' => $businessCard]) }}')">編集</button>
     <button onclick="deleteCorp(event, '{{ route('business-card.delete', ['corp' => $businessCard->corp->id]) }}')"
         data-corp-name='{{ $businessCard->corp->corp_name }}'>削除</button>
 </div>
