@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Corp;
+use App\Models\BusinessCard;
 use App\Http\Requests\CreateCorpRequest;
 
 class CorpController extends Controller
@@ -19,7 +20,7 @@ class CorpController extends Controller
         return view('corp.index', $data);
     }
 
-    public function businessCardsList(Corp $corp)
+    public function businessCardsList(Corp $corp, BusinessCard $businessCard)
     {
         $businessCards = $corp->businessCards;
 
@@ -28,6 +29,7 @@ class CorpController extends Controller
 
         $data = [
             'uniqueDivisions' => $uniqueDivisions,
+            'businessCard' => $businessCard,
             'businessCards' => $businessCards,
             'corp' => $corp,
         ];
