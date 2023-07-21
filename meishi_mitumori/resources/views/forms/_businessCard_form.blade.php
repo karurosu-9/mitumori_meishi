@@ -29,9 +29,7 @@
                 <span id="divisionMessage"
                     style="color: red; font-weight: bold; font-size: 10px;">※リストに部署がなければ、入力してください。</span>
                 <br>
-                <input type="text" name="division" id="divisionTextInput"
-                    value="
-                    {{ $action === route('business-card.edit', ['corp' => $corp]) ? $businessCard->division : old('division') }}">
+                <input type="text" name="division" id="divisionTextInput" value="{{ old('division') }}">
             </td>
         </tr>
         <tr>
