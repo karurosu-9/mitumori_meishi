@@ -20,7 +20,7 @@
                     <option value="">-- 部署を入力する --</option>
                     @foreach ($businessCards as $businessCard)
                         <option value="{{ $businessCard->division }}"
-                            {{ $businessCard && $action === route('business-card.edit', ['corp' => $businessCard->corp->id]) && $divisionName === old('division') ? 'selected' : old('division') }}>
+                            {{ $businessCard && $action === route('business-card.edit', ['corp' => $corp]) && $businessCard->division === old('division') ? 'selected' : old('division') }}>
                             {{ $businessCard->division }}</option>
                     @endforeach
                 </select>
