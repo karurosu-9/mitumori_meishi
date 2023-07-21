@@ -12,8 +12,10 @@ class BusinessCardController extends Controller
 
     public function show(Corp $corp, BusinessCard $businessCard)
     {
+        $postalCode = substr($businessCard->corp->postal_code, 0, 3) . '-' . substr($businessCard->corp->postal_code, 3);
 
         $data = [
+            'postalCode' => $postalCode,
             'businessCard' => $businessCard,
             'corp' => $corp,
         ];
