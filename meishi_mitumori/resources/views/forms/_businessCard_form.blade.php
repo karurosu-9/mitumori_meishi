@@ -35,19 +35,19 @@
         <tr>
             <th>役職</th>
             <td><input type="text" id="title" name="title"
-                    value="{{ $action === route('business-card.edit', ['corp' => $corp, 'businessCard' => $businessCard]) ? $businessCard->title : old('title', '') }}">
+                    value="{{ $action === route('business-card.add', ['corp' => $corp]) ? old('title') : $businessCard->title }}">
             </td>
         </tr>
         <tr>
             <th>名前</th>
             <td><input type="text" id="employee-name" name="employee_name"
-                    value="{{ $action === route('business-card.edit', ['corp' => $corp, 'businessCard' => $businessCard]) ? $businessCard->employee_name : old('employee_name') }}">
+                    value="{{ $action === route('business-card.add', ['corp' => $corp]) ? old('employee_name') : $businessCard->employee_name }}">
             </td>
         </tr>
         <tr>
             <th>携帯番号</th>
             <td><input type="text" id="mobile-phone" name="mobile_phone"
-                    value="{{ $action === route('business-card.edit', ['corp' => $corp, 'businessCard' => $businessCard]) ? $businessCard->mobile_phone : old('mobile_phone') }}">
+                    value="{{ $action === route('business-card.add', ['corp' => $corp]) ? old('mobile_phone') : $businessCard->mobile_phone }}">
             </td>
         </tr>
     </table>
