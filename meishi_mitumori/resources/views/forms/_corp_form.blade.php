@@ -13,7 +13,7 @@
         <tr>
             <th>会社名</th>
             <td><input type="text" id='corp-name' name="corp_name"
-                    value="{{ $action === 'add' ? old('corp_name') : $corp->corp_name }}"></td>
+                    value="{{ $action === route('corp.add') ? old('corp_name') : $corp->corp_name }}"></td>
         </tr>
         <tr>
             <th>郵便番号</th>
@@ -21,7 +21,7 @@
                 <span class="p-country-name" style="display:none;">Japan</span>
                 〒<input type="text" style="width: 150px" id="postal-code" class="p-postal-code" size="7"
                     maxlength="7" name="postal_code"
-                    value="{{ $action === 'add' ? old('postal_code') : $corp->postal_code }}">
+                    value="{{ $action === route('corp.add') ? old('postal_code') : $corp->postal_code }}">
                 <br>
             </td>
         </tr>
@@ -29,13 +29,13 @@
             <th>住所</th>
             <td>
                 <input type="text" id="address" class="p-region p-locality p-street-address p-extended-address"
-                    name="address" value="{{ $action === 'add' ? old('address') : $corp->address }}">
+                    name="address" value="{{ $action === route('corp.add') ? old('address') : $corp->address }}">
             </td>
         </tr>
         <tr>
             <th>電話番号</th>
             <td><input type="text" id="tel" name="tel"
-                    value="{{ $action === 'add' ? old('tel') : $corp->tel }}"></td>
+                    value="{{ $action === route('corp.add') ? old('tel') : $corp->tel }}"></td>
         </tr>
     </table>
     <br>
