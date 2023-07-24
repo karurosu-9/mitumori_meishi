@@ -23,7 +23,7 @@ class BusinessCardController extends Controller
         return view('business-card.show', $data);
     }
 
-    public function add(Corp $corp, BusinessCard $businessCard)
+    public function add(Corp $corp)
     {
         //会社に紐づく名刺の所属部署を変数に格納 ※セレクトボックスで使用する
         $businessCards = $corp->businessCards;
@@ -31,7 +31,6 @@ class BusinessCardController extends Controller
         $uniqueBusinessCards = $businessCards->unique('division');
         $data = [
             'uniqueBusinessCards' => $uniqueBusinessCards,
-            'businessCard' => $businessCard,
             'corp' => $corp,
         ];
 
