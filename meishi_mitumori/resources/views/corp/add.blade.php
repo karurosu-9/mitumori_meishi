@@ -13,6 +13,7 @@
     @include('forms._corp_form', [
         'action' => route('corp.add'),
         'backUrl' => route('corp.list'),
+        'buttonLabelValue' => '会社一覧へ戻る'
     ])
     <br>
     <br>

@@ -12,6 +12,7 @@
     @include('forms._corp_form', [
         'action' => route('corp.edit', ['corp' => $corp]),
         'backUrl' => route('corp.show', ['corp' => $corp]),
+        'buttonLabelValue' => '会社詳細へ戻る'
     ])
     <br>
     <br>
