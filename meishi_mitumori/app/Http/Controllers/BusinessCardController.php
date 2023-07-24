@@ -25,12 +25,14 @@ class BusinessCardController extends Controller
 
     public function add(Corp $corp)
     {
+        $businessCard = new BusinessCard;
         //会社に紐づく名刺の所属部署を変数に格納 ※セレクトボックスで使用する
         $businessCards = $corp->businessCards;
         //divisionの重複を避けた名刺だけを格納
-        $uniqueBusinessCards = $businessCards->unique('division');
+        $uniqueDivisionCards = $businessCards->unique('division');
         $data = [
-            'uniqueBusinessCards' => $uniqueBusinessCards,
+            'uniqueDivisionCards' => $uniqueDivisionCards,
+            'businessCard' => $businessCard,
             'corp' => $corp,
         ];
 
@@ -50,9 +52,9 @@ class BusinessCardController extends Controller
     public function edit(Corp $corp, BusinessCard $businessCard)
     {
         $businessCards = $corp->businessCards;
-        $uniqueBusinessCards = $businessCards->unique('division');
+        $uniqueDivisionCards = $businessCards->unique('division');
         $data = [
-            'uniqueBusinessCards' => $uniqueBusinessCards,
+            'uniqueDivisionCards' => $uniqueDivisionCards,
             'corp' => $corp,
             'businessCard' => $businessCard,
         ];
