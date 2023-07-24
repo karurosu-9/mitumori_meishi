@@ -10,11 +10,13 @@
     <h1>【 会社-登録 】</h1>
     <br>
     <br>
-    @include('forms._corp_form', [
-        'action' => route('corp.add'),
-        'backUrl' => route('corp.list'),
-        'buttonLabelValue' => '会社一覧へ戻る'
-    ])
+    <form class="h-adr" action="{{ route('corp.add') }}" method="POST" onsubmit="return formCheckMessage()">
+        @csrf
+        @include('forms._corp_form', [
+            'backUrl' => route('corp.list'),
+            'buttonLabelValue' => '会社一覧へ戻る',
+        ])
+    </form>
     <br>
     <br>
 
