@@ -24,7 +24,7 @@
     </tr>
     <tr>
         <th>郵便番号</th>
-        <td>{{ $postalCode }}</td>
+        <td>〒{{ $postalCode }}</td>
     </tr>
     <tr>
         <th>住所</th>
