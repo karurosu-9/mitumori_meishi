@@ -23,12 +23,18 @@ class CreateCorpRequest extends FormRequest
      */
     public function rules()
     {
-        return [
+        $rules = [
             'corp_name' => 'required|string|max:255|unique:corps,corp_name|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠])[a-zA-Zぁ-んァ-ヶ一-龠0-9\-]+$/u',
             'postal_code' => 'required|string|regex:/^[0-9]{7}$/u',
             'address' => 'required|string|max:255|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠])[a-zA-Zぁ-んァ-ヶ一-龠0-9\-]+$/u',
             'tel' => 'required|string|max:12|regex:/^[0-9]{10,12}$/u',
         ];
+
+        if ($this->isMethod('PUT')) {
+            $rules['corp_name'] = 'required|string|max:255|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠])[a-zA-Zぁ-んァ-ヶ一-龠0-9\-]+$/u';
+        }
+
+        return $rules;
     }
 
     public function messages()

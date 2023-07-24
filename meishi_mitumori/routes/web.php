@@ -25,7 +25,7 @@ Route::get('corp/{corp}/show', [CorpController::class, 'show'])->name('corp.show
 Route::get('corp/add', [CorpController::class, 'add'])->name('corp.add');
 Route::post('corp/add', [CorpController::class, 'create']);
 Route::get('corp/{corp}/edit', [CorpController::class, 'edit'])->name('corp.edit');
-Route::post('corp/{corp}/update', [CorpController::class, 'update']);
+Route::put('corp/{corp}/edit', [CorpController::class, 'update']);
 Route::get('corp/{corp}/delete', [CorpController::class, 'delete'])->name('corp.delete');
 
 //business-card関係のルーティング
