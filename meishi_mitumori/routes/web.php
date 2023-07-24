@@ -25,11 +25,12 @@ Route::get('corp/{corp}/show', [CorpController::class, 'show'])->name('corp.show
 Route::get('corp/add', [CorpController::class, 'add'])->name('corp.add');
 Route::post('corp/add', [CorpController::class, 'create']);
 Route::get('corp/{corp}/edit', [CorpController::class, 'edit'])->name('corp.edit');
+Route::post('corp/{corp}/update', [CorpController::class, 'update']);
 Route::get('corp/{corp}/delete', [CorpController::class, 'delete'])->name('corp.delete');
 
 //business-card関係のルーティング
 Route::get('corp/{corp}/business-card/{businessCard}/show', [BusinessCardController::class, 'show'])->name('business-card.show');
 Route::get('corp/{corp}/business-card/add', [BusinessCardController::class, 'add'])->name('business-card.add');
-Route::post('corp/{corp}/business-card/add', [BusinessCardController::class, 'create'])->name('business-card.create');
+Route::post('corp/{corp}/business-card/add', [BusinessCardController::class, 'create']);
 Route::get('corp/{corp}/business-card/{businessCard}/edit', [BusinessCardController::class, 'edit'])->name('business-card.edit');
 Route::get('business-card/delete/{corp}', [BusinessCardController::class, 'delete'])->name('business-card.delete');
