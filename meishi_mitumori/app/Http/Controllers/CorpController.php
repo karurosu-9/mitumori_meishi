@@ -78,6 +78,15 @@ class CorpController extends Controller
         return view('corp.edit', $data);
     }
 
+    public function update(CreateCorpRequest $request, Corp $corp)
+    {
+        $form = $request->validated();
+        $corp->fill($form)->save();
+
+        return redirect()->route('corp.show', ['corp' => $corp]);
+    }
+
+
     public function delete(Corp $corp)
     {
         $corp->delete();
