@@ -62,3 +62,17 @@ export function disableTextInput(selectElement) {
 }
 
 window.disableTextInput = disableTextInput;
+
+//削除ボタンを押した時のcofirmの処理
+export function deleteBusinessCard(event, url) {
+    //会社名の取得
+    let corpName = event.target.getAttribute('data-corp-name');
+    //名刺のIDの取得
+    let businessCardId = event.target.getAttribute('data-business-card-id');
+
+    if (confirm('会社名 『' + corpName + '』の名刺番号 『' + businessCardId + '』を削除してもよろしいですか？')) {
+        location.href = url;
+    }
+}
+
+window.deleteBusinessCard = deleteBusinessCard;

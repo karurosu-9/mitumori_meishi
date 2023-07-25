@@ -39,6 +39,7 @@ var __webpack_exports__ = {};
   \***************************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   deleteBusinessCard: () => (/* binding */ deleteBusinessCard),
 /* harmony export */   disableTextInput: () => (/* binding */ disableTextInput),
 /* harmony export */   formCheckMessage: () => (/* binding */ formCheckMessage)
 /* harmony export */ });
@@ -80,16 +81,32 @@ window.formCheckMessage = formCheckMessage;
 function disableTextInput(selectElement) {
   var textInput = document.getElementById('divisionTextInput');
   var message = document.getElementById('divisionMessage');
+
+  //セレクトボックスに値があるかどうかで、テキスト入力フォーム表示の切り替えを行う
   if (selectElement.value !== "") {
     textInput.type = 'hidden';
     message.style.display = 'none';
-    textInput.setAttribute('disabled', 'disabled');
+    //テキスト入力フォームにdisable属性を設定
+    textInput.setAttribute('disabled');
   } else {
     textInput.type = 'text';
     message.style.display = 'inline';
+    //テキスト入力フォームのdisable属性を解除
     textInput.removeAttribute('disabled');
   }
 }
 window.disableTextInput = disableTextInput;
+
+//削除ボタンを押した時のcofirmの処理
+function deleteBusinessCard(event, url) {
+  //会社名の取得
+  var corpName = event.target.getAttribute('data-corp-name');
+  //名刺のIDの取得
+  var businessCardId = event.target.getAttribute('data-business-card-id');
+  if (confirm('会社名 『' + corpName + '』の名刺番号 『' + businessCardId + '』を削除してもよろしいですか？')) {
+    location.href = url;
+  }
+}
+window.deleteBusinessCard = deleteBusinessCard;
 /******/ })()
 ;
