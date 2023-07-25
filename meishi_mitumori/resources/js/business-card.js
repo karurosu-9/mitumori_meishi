@@ -63,7 +63,15 @@ export function disableTextInput(selectElement) {
 
 window.disableTextInput = disableTextInput;
 
-//削除ボタンを押した時のcofirmの処理
+
+//編集ボタンを押したときの処理
+export function editBusinessCard(url) {
+    location.href = url;
+}
+
+window.editBusinessCard = editBusinessCard;
+
+//削除ボタンを押した時の処理
 export function deleteBusinessCard(event, url) {
     //会社名の取得
     let corpName = event.target.getAttribute('data-corp-name');

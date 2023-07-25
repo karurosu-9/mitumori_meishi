@@ -41,6 +41,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   deleteBusinessCard: () => (/* binding */ deleteBusinessCard),
 /* harmony export */   disableTextInput: () => (/* binding */ disableTextInput),
+/* harmony export */   editBusinessCard: () => (/* binding */ editBusinessCard),
 /* harmony export */   formCheckMessage: () => (/* binding */ formCheckMessage)
 /* harmony export */ });
 //登録、編集フォームの記入漏れをチェックするメソッド
@@ -97,7 +98,13 @@ function disableTextInput(selectElement) {
 }
 window.disableTextInput = disableTextInput;
 
-//削除ボタンを押した時のcofirmの処理
+//編集ボタンを押したときの処理
+function editBusinessCard(url) {
+  location.href = url;
+}
+window.editBusinessCard = editBusinessCard;
+
+//削除ボタンを押した時の処理
 function deleteBusinessCard(event, url) {
   //会社名の取得
   var corpName = event.target.getAttribute('data-corp-name');
