@@ -67,4 +67,11 @@ class BusinessCardController extends Controller
 
         return redirect()->route('business-card.show', ['corp' => $corp, 'businessCard' => $businessCard]);
     }
+
+    public function delete(Corp $corp, BusinessCard $businessCard)
+    {
+        $businessCard->delete();
+
+        return redirect()->route('corpBusinessCardsList', ['corp' => $corp, 'businessCard' => $businessCard]);
+    }
 }

@@ -34,4 +34,4 @@ Route::get('corp/{corp}/business-card/add', [BusinessCardController::class, 'add
 Route::post('corp/{corp}/business-card/add', [BusinessCardController::class, 'create']);
 Route::get('corp/{corp}/business-card/{businessCard}/edit', [BusinessCardController::class, 'edit'])->name('business-card.edit');
 Route::post('corp/{corp}/business-card/{businessCard}/edit', [BusinessCArdController::class, 'update']);
-Route::get('business-card/delete/{corp}', [BusinessCardController::class, 'delete'])->name('business-card.delete');
+Route::get('corp/{corp}/business-card/{businessCard}/delete', [BusinessCardController::class, 'delete'])->name('business-card.delete');
