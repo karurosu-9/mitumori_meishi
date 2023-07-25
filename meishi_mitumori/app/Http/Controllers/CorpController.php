@@ -90,6 +90,6 @@ class CorpController extends Controller
     public function delete(Corp $corp)
     {
         $corp->delete();
-        return view('corp.index');
+        return redirect()->route('corp.list');
     }
 }
