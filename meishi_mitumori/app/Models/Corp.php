@@ -20,8 +20,8 @@ class Corp extends Model
         return $this->hasMany(BusinessCard::class);
     }
 
-    public function division()
+    public function estimates()
     {
-        return $this->hasMany(Division::class);
+        return $this->hasMany(Estimate::class);
     }
 }
