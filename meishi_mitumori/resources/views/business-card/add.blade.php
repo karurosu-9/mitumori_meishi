@@ -9,11 +9,13 @@
     <h1>【 {{ $corp->corp_name }} の名刺-登録 】</h1>
     <br>
     <br>
-    @include('forms._businessCard_form', [
-        'action' => route('business-card.add', ['corp' => $corp]),
-        'backUrl' => route('corp.businessCardsList', ['corp' => $corp]),
-        'buttonLabelValue' => '名刺一覧へ戻る',
-    ])
+    <form action="{{ route('business-card.add', ['corp' => $corp]) }}" method="POST" onsubmit="return formCheckMessage()">
+        @csrf
+        @include('forms._businessCard_form', [
+            'backUrl' => route('corp.businessCardsList', ['corp' => $corp]),
+            'buttonLabelValue' => '名刺一覧へ戻る',
+        ])
+    </form>
     <br>
     <br>
 
