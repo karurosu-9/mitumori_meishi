@@ -56,4 +56,3 @@
     <button type="button" onclick="location.href='{{ $backUrl }}'">{{ $buttonLabelValue }}</button>
     <input type="submit" value="登録">
 </div>
-</form>
