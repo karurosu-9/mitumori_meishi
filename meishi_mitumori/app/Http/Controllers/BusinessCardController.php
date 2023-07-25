@@ -59,4 +59,12 @@ class BusinessCardController extends Controller
 
         return view('business-card.edit', $data);
     }
+
+    public function update(CreateBusinessCardRequest $request, BusinessCard $businessCard, Corp $corp)
+    {
+        $form = $request->validated();
+        $businessCard->fill($form)->save();
+
+        return redirect()->route('business-card.show', ['corp' => $corp, 'businessCard' => $businessCard]);
+    }
 }
