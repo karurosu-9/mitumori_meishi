@@ -9,10 +9,11 @@
     <h1>【 {{ $corp->corp_name }} の見積り-登録 】</h1>
     <br>
     <br>
-    <form action="{{ route('estimate.add', ['corp' => $corp]) }}" method="POST" onsubmit="return formCheckMessage()">
+    <form action="{{ route('estimate.confirmEstimate', ['corp' => $corp]) }}" method="POST"
+        onsubmit="return formCheckMessage()">
         @csrf
         @include('forms._estimate_form', [
-            'backUrl' => route('estimate.corpEstimateList', ['corp' => $corp]),
+            'backUrl' => route('estimate.corpEstimatesList', ['corp' => $corp]),
             'buttonLabelValue' => '見積り一覧へ戻る',
         ])
     </form>
