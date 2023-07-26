@@ -20,13 +20,13 @@
         <tr>
             <td><input type="text" style="width: 400px;" name="tekiyo{{ $i }}"
                     value="{{ old('tekiyo' . $i) }}"></td>
-            <td><input type="text" name="unit_price{{ $i }}" id="{{ old('unit_price_' . $i) }}"
+            <td><input type="text" name="unit_price{{ $i }}" id="unit_price_{{ $i }}"
                     onChange="subTotal()" value="{{ old('unit_price' . $i) }}" style="width: 100px"></td>
-            <td><input type="text" name="quantity{{ $i }}" id="{{ old('quantity_' . $i) }}"
+            <td><input type="text" name="quantity{{ $i }}" id="quantity_{{ $i }}"
                     onChange="subTotal()" value="{{ old('quantity' . $i) }}" style="width: 80px">
             </td>
-            <td><input type="text" name="amount{{ $i }}" value="{{ old('amount' . $i) }}"
-                    style="width: 100px">
+            <td><input type="text" name="amount{{ $i }}" id="amount_{{ $i }}"
+                    value="{{ old('amount' . $i) }}" style="width: 100px" readonly>
             </td>
             <td><input type="text" name="note{{ $i }}" value="{{ old('note' . $i) }}"
                     style="width: 400px">
@@ -44,5 +44,5 @@
 <br>
 <div class="button">
     <button type="button" onclick="location.href='{{ $backUrl }}'">{{ $buttonLabelValue }}</button>
-    <input type="submit" value="登録">
+    <input type="submit" value="確認">
 </div>
