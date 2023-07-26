@@ -19,5 +19,9 @@
     <br>
     <br>
 
+    <script>
+        const FORM_NOT_HOSOKU = {{ \App\Consts\EstimateFormCountConsts::FORM_NOT_HOSOKU }};
+    </script>
+
     <script src="{{ asset('js/estimate.js') }}"></script>
 @endsection
