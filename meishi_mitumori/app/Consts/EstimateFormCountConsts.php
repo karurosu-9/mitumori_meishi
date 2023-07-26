@@ -3,7 +3,7 @@
 namespace App\Consts;
 
 //viesやmigrationファイルで使用するマジックナンバー
-class FormCountConsts
+class EstimateFormCountConsts
 {
     //見積り入力フォームなどで使用する、補足以外の行数(摘要、単価など)
     public const FORM_NOT_HOSOKU = 5;

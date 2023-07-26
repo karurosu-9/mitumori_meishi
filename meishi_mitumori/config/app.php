@@ -210,7 +210,7 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
-        'FormCountConsts' => App\Consts\FormCountConsts::class,
+        'EstimateFormCountConsts' => App\Consts\EstimateFormCountConsts::class,
     ])->toArray(),
 
 ];
