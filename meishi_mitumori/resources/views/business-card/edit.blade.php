@@ -13,7 +13,7 @@
         onsubmit="formCheckMessage()">
         @csrf
         @include('forms._businessCard_form', [
-            'backUrl' => route('corp.businessCardsList', [$corp]),
+            'backUrl' => route('business-card.corpBusinessCardsList', ['corp' => $corp]),
             'buttonLabelValue' => '名刺詳細へ戻る',
         ])
     </form>

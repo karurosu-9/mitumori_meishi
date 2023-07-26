@@ -13,7 +13,7 @@
 <br>
 <div class="button">
     <button
-        onclick="location.href='{{ route('corp.businessCardsList', ['corp' => $businessCard->corp->id]) }}'">名刺一覧</button>
+        onclick="location.href='{{ route('business-card.corpBusinessCardsList', ['corp' => $businessCard->corp->id]) }}'">名刺一覧</button>
 </div>
 <br>
 <br>

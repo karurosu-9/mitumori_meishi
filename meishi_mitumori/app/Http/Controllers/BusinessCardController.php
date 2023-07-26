@@ -9,6 +9,22 @@ use App\Models\Corp;
 
 class BusinessCardController extends Controller
 {
+    public function index(Corp $corp, BusinessCard $businessCard)
+    {
+        $businessCards = $corp->businessCards;
+
+        //一意の部署名の取得
+        $uniqueDivisions = $businessCards->pluck('division')->unique();
+
+        $data = [
+            'uniqueDivisions' => $uniqueDivisions,
+            'businessCard' => $businessCard,
+            'businessCards' => $businessCards,
+            'corp' => $corp,
+        ];
+
+        return view('business-card.business-cards-list', $data);
+    }
 
     public function show(Corp $corp, BusinessCard $businessCard)
     {
@@ -44,7 +60,7 @@ class BusinessCardController extends Controller
         $form = $request->validated();
         $businessCard->fill($form)->save();
 
-        return redirect()->route('corp.businessCardsList', ['corp' => $corp]);
+        return redirect()->route('business-card.corpBusinessCardsList', ['corp' => $corp]);
     }
 
     public function edit(Corp $corp, BusinessCard $businessCard)
@@ -72,6 +88,6 @@ class BusinessCardController extends Controller
     {
         $businessCard->delete();
 
-        return redirect()->route('corpBusinessCardsList', ['corp' => $corp, 'businessCard' => $businessCard]);
+        return redirect()->route('business-card.corpBusinessCardsList', ['corp' => $corp, 'businessCard' => $businessCard]);
     }
 }

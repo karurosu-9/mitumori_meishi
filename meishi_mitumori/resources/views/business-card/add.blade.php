@@ -12,7 +12,7 @@
     <form action="{{ route('business-card.add', ['corp' => $corp]) }}" method="POST" onsubmit="return formCheckMessage()">
         @csrf
         @include('forms._businessCard_form', [
-            'backUrl' => route('corp.businessCardsList', ['corp' => $corp]),
+            'backUrl' => route('business-card.corpBusinessCardsList', ['corp' => $corp]),
             'buttonLabelValue' => '名刺一覧へ戻る',
         ])
     </form>
