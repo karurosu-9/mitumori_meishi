@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Estimate;
 use App\Models\Corp;
 use App\Consts\EstimateFormCountConsts;
+use App\Http\Requests\CreateEstimateRequest;
 
 class EstimateController extends Controller
 {
@@ -18,5 +19,24 @@ class EstimateController extends Controller
         ];
 
         return view('Estimate.add', $data);
+    }
+
+    public function confirmEstimate(CreateEstimateRequest $request, Corp $corp)
+    {
+        $formValidatedData = $request->validated();
+        $formValidatedData->session()->put('estimateData', $formValidatedData);
+
+        $data = [
+            'formValidatedData' => $formValidatedData,
+        ];
+
+        var_dump($formValidatedData);
+        exit;
+
+        return view('estimate.confirmEstimate', $data);
+    }
+
+    public function create(CreateEstimateRequest $request, Corp $corp)
+    {
     }
 }

@@ -39,6 +39,7 @@ Route::post('corp/{corp}/business-card/{businessCard}/edit', [BusinessCArdContro
 Route::get('corp/{corp}/business-card/{businessCard}/delete', [BusinessCardController::class, 'delete'])->name('business-card.delete');
 
 //estimate関係のルーティング
-Route::get('corp/{corp}/estimate/index', [EstimateController::class, 'index'])->name('estimate.corpEstimateList');
+Route::get('corp/{corp}/estimate/index', [EstimateController::class, 'index'])->name('estimate.corpEstimatesList');
 Route::get('corp/{corp}/estimate/add', [EstimateController::class, 'add'])->name('estimate.add');
-Route::post('corp/{corp}/estimate/add', [EstimateController::class, 'create'])->name('estimate.create');
+Route::get('corp/{corp}/estimate/confirmEstimate', [EstimateController::class, 'confirmEstimate'])->name('estimate.confirmEstimate');
+Route::post('corp/{corp}/estimate/add', [EstimateController::class, 'create']);
