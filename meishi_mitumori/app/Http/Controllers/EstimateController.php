@@ -24,10 +24,11 @@ class EstimateController extends Controller
     public function confirmEstimate(CreateEstimateRequest $request, Corp $corp)
     {
         $formValidatedData = $request->validated();
-        $formValidatedData->session()->put('estimateData', $formValidatedData);
+        $request->session()->put('estimateData', $formValidatedData);
 
         $data = [
             'formValidatedData' => $formValidatedData,
+            'corp' => $corp,
         ];
 
         var_dump($formValidatedData);
