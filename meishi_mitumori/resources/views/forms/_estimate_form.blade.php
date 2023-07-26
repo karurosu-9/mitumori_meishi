@@ -8,6 +8,13 @@
     @endif
 </div>
 
+<div style="font-size: 18px;">
+    <label for="date" style="font-weight: bold;">日付を選択</label>
+    <br>
+    <input type="date" name="date" id="date" value="{{ date('Y-m-d') }}">
+</div>
+<br>
+<br>
 <table cellpadding="1">
     <tr>
         <th>摘要</th>
