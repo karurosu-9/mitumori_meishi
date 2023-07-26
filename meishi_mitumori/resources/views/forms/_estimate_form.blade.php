@@ -2,7 +2,7 @@
     @if ($errors->any())
         <ul>
             @foreach ($errors->all() as $error)
-                <li class="post-error-list">{{ $error }}</li>
+                <li class="post-error-list">※{{ $error }}</li>
             @endforeach
         </ul>
     @endif
@@ -16,20 +16,30 @@
         <th>金額</th>
         <th>備考</th>
     </tr>
-    @for ($i = 1; $i <= FormCountConsts::FORM_NOT_HOSOKU; $i++) {
+    @for ($i = 1; $i <= EstimateFormCountConsts::FORM_NOT_HOSOKU; $i++)
         <tr>
-            <td><input type="text" style="width: 200px;" name="tekiyo{{ $i }}" value="{{ old('tekiyo' . $i) }}"></td>
-            <td><input type="text" name="unit_price{{ $i }}" value="{{ old('unit_price' . $i) }}"></td>
-            <td><input type="text" name="quantity{{ $i }}" value="{{ old('quantity' . $i) }}"></td>
-            <td><input type="text" name="amount{{ $i }}" value="{{ old('amount' . $i) }}">/td>
-            <td><input type="text" name="note{{ $i }}" value="{{ old('note' . $i) }}"></td>
+            <td><input type="text" style="width: 400px;" name="tekiyo{{ $i }}"
+                    value="{{ old('tekiyo' . $i) }}"></td>
+            <td><input type="text" name="unit_price{{ $i }}" id="{{ old('unit_price_' . $i) }}"
+                    onChange="subTotal()" value="{{ old('unit_price' . $i) }}" style="width: 100px"></td>
+            <td><input type="text" name="quantity{{ $i }}" id="{{ old('quantity_' . $i) }}"
+                    onChange="subTotal()" value="{{ old('quantity' . $i) }}" style="width: 80px">
+            </td>
+            <td><input type="text" name="amount{{ $i }}" value="{{ old('amount' . $i) }}"
+                    style="width: 100px">
+            </td>
+            <td><input type="text" name="note{{ $i }}" value="{{ old('note' . $i) }}"
+                    style="width: 400px">
+            </td>
         </tr>
-    }
-    <tr>
-        <th>合計金額</th>
-        <td></td>
-    </tr>
+    @endfor
 </table>
+<div>補足</div>
+@for ($i = 1; $i <= EstimateFormCountConsts::FORM_HOSOKU; $i++)
+    <div><input type="text" name="hosoku{{ $i }}" value="{{ old('hosoku' . $i) }}"
+            style="width: 1134px">
+    </div>
+@endfor
 <br>
 <br>
 <div class="button">
