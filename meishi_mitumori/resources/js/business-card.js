@@ -52,7 +52,7 @@ export function disableTextInput(selectElement) {
         textInput.type = 'hidden';
         message.style.display = 'none';
         //テキスト入力フォームにdisable属性を設定
-        textInput.setAttribute('disabled');
+        textInput.setAttribute('disabled', 'true');
     } else {
         textInput.type = 'text';
         message.style.display = 'inline';

@@ -20,7 +20,7 @@
                 <!-- divisionの重複を避けた名刺 -->
                 @foreach ($uniqueDivisionCards as $uniqueSelectDivisionCard)
                     <option value="{{ $uniqueSelectDivisionCard->division }}"
-                        {{ Route::currentRouteName() === 'business-card.edit' && $uniqueSelectDivisionCard->division ? 'selected' : old('division') }}>
+                        {{ Route::currentRouteName() === 'business-card.edit' ? 'selected' : old('division') }}>
                         {{ $uniqueSelectDivisionCard->division }}</option>
                 @endforeach
             </select>
