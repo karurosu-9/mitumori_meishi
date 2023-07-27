@@ -2,5 +2,6 @@
     "/js/corp.js": "/js/corp.js",
     "/js/business-card.js": "/js/business-card.js",
     "/js/estimate.js": "/js/estimate.js",
+    "/css/pages/estimate-layout.css": "/css/pages/estimate-layout.css",
     "/css/pages/layout.css": "/css/pages/layout.css"
 }

@@ -119,6 +119,18 @@ __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
 
+/***/ }),
+
+/***/ "./resources/css/pages/estimate-layout.css":
+/*!*************************************************!*\
+  !*** ./resources/css/pages/estimate-layout.css ***!
+  \*************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+// extracted by mini-css-extract-plugin
+
+
 /***/ })
 
 /******/ 	});
@@ -220,6 +232,7 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 		// [resolve, reject, Promise] = chunk loading, 0 = chunk loaded
 /******/ 		var installedChunks = {
 /******/ 			"/js/corp": 0,
+/******/ 			"css/pages/estimate-layout": 0,
 /******/ 			"css/pages/layout": 0
 /******/ 		};
 /******/ 		
@@ -270,8 +283,9 @@ __webpack_require__.r(__webpack_exports__);
 /******/ 	// startup
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module depends on other loaded chunks and execution need to be delayed
-/******/ 	__webpack_require__.O(undefined, ["css/pages/layout"], () => (__webpack_require__("./resources/js/corp.js")))
-/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/pages/layout"], () => (__webpack_require__("./resources/css/pages/layout.css")))
+/******/ 	__webpack_require__.O(undefined, ["css/pages/estimate-layout","css/pages/layout"], () => (__webpack_require__("./resources/js/corp.js")))
+/******/ 	__webpack_require__.O(undefined, ["css/pages/estimate-layout","css/pages/layout"], () => (__webpack_require__("./resources/css/pages/layout.css")))
+/******/ 	var __webpack_exports__ = __webpack_require__.O(undefined, ["css/pages/estimate-layout","css/pages/layout"], () => (__webpack_require__("./resources/css/pages/estimate-layout.css")))
 /******/ 	__webpack_exports__ = __webpack_require__.O(__webpack_exports__);
 /******/ 	
 /******/ })()
