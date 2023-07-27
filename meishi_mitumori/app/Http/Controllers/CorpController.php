@@ -66,7 +66,7 @@ class CorpController extends Controller
         $form = $request->validated();
         $corp->fill($form)->save();
 
-        return redirect()->route('corp.list');
+        return redirect()->route('corp.show', ['corp' => $corp]);
     }
 
     public function edit(Corp $corp)
