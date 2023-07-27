@@ -16,7 +16,7 @@ class CorpsTableSeeder extends Seeder
     public function run()
     {
         DB::table('corps')->insert([
-            'corp_name' => 'アスカ株式会社',
+            'corp_name' => 'AAA株式会社',
             'postal_code' => '1234567',
             'address' => '東京都新宿区',
             'tel' => '1234567890',
