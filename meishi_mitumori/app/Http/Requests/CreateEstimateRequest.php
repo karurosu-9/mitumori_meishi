@@ -57,6 +57,10 @@ class CreateEstimateRequest extends FormRequest
             'quantity5' => 'nullable|string|required_with:unit_price5|max:50|regex:/^[a-zA-Z0-9ぁ-んァ-ヶ一-龠?!\-]+$/u',
             'amount5' => 'nullable|string|required_with:unit_price5, quantity5|max:50|regex:/^[0-9]+$/u',
             'note5' => 'nullable|string|max:255|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            //補足のバリデーション
+            'hosoku1' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            'hosoku2' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            'hosoku3' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
         ];
     }
 
@@ -126,6 +130,13 @@ class CreateEstimateRequest extends FormRequest
             'amount5.required_with' => '単価５もしくは数量５の片方しか入力されていないので、金額５が表示されていません。',
             'amount5.max' => '金額５の最大入力文字数は５０文字までです。',
             'amount5.regex' => '金額５の入力欄には数字のみしか入力できません。',
+            //補足のバリデーションメッセージ
+            'hosoku1.max' => '補足１の入力欄の最大入力文字数は１００文字までです。',
+            'hosoku1.regex' => '補足１の入力欄には？、！、―、以外の記号を入力することはできません。',
+            'hosoku2.max' => '補足２の入力欄の最大入力文字数は１００文字までです。',
+            'hosoku2.regex' => '補足２の入力欄には？、！、―、以外の記号を入力することはできません。',
+            'hosoku3.max' => '補足３の入力欄の最大入力文字数は１００文字までです。',
+            'hosoku3.regex' => '補足３の入力欄には？、！、―、以外の記号を入力することはできません。',
         ];
     }
 };
