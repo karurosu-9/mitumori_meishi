@@ -8,6 +8,7 @@
     @endif
 </div>
 
+<input type="hidden" name="corp_id" value="{{ old($corp->id, $corp->id) }}">
 <div style="font-size: 18px;">
     <label for="date" style="font-weight: bold;">日付を選択</label>
     <br>
@@ -41,6 +42,7 @@
         </tr>
     @endfor
 </table>
+
 <div>補足</div>
 @for ($i = 1; $i <= EstimateFormCountConsts::FORM_HOSOKU; $i++)
     <div><input type="text" name="hosoku{{ $i }}" value="{{ old('hosoku' . $i) }}"
