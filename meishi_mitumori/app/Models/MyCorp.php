@@ -9,7 +9,7 @@ class MyCorp extends Model
 {
     use HasFactory;
 
-    protected $table = 'my_table';
+    protected $table = 'my_corp';
     protected $fillable = ['corp_name', 'postal_code', 'address', 'tel', 'fax', 'place', 'conditions', 'deadline'];
 
     public $timestamps = true;
