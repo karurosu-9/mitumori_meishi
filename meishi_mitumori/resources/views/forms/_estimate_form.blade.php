@@ -34,13 +34,20 @@
                     onChange="subTotal()" value="{{ old('quantity' . $i) }}" style="width: 80px">
             </td>
             <td><input type="text" name="amount{{ $i }}" id="amount-{{ $i }}"
-                    value="{{ old('amount' . $i) }}" style="width: 100px" readonly>
+                    value="{{ old('amount' . $i) }}" style="width: auto" readonly>
             </td>
             <td><input type="text" name="note{{ $i }}" value="{{ old('note' . $i) }}"
                     style="width: 400px">
             </td>
         </tr>
     @endfor
+    <tr>
+        <td colspan="1" class="total_price">合計</td>
+        <td class="none">――</td>
+        <td class="none">――</td>
+        <td><input type="text" name="total_price" id="total-price" value="{{ old('total_price') }}" readonly></td>
+        <td class="none"></td>
+    </tr>
 </table>
 
 <div>補足</div>
