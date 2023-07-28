@@ -82,32 +82,32 @@
                     <th width="50px" class="note">備考</th>
                 </tr>
                 @for ($i = 1; $i <= EstimateFormCountConsts::FORM_NOT_HOSOKU; $i++)
-                    @if (empty($sessionDataAmount[$i]))
+                    @if (empty($amount[$i]))
                         @continue
                     @endif
                     <tr>
-                        <td>{{ $sessionDataTekiyo[$i] }}</td>
-                        <td>{{ number_format($sessionDataUnitPrice[$i]) }}</td>
-                        <td>{{ $sessionDataQuantity[$i] }}</td>
-                        <td>{{ number_format($sessionDataAmount[$i]) . ' -' }}</td>
-                        <td style="border:none; width: 500px">{{ $sessionDataNote[$i] }}</td>
+                        <td>{{ $tekiyo[$i] }}</td>
+                        <td>{{ number_format($unitPrice[$i]) }}</td>
+                        <td>{{ $quantity[$i] }}</td>
+                        <td>{{ number_format($amount[$i]) . ' -' }}</td>
+                        <td style="border:none; width: 500px">{{ $note[$i] }}</td>
                     </tr>
                 @endfor
                 <tr>
                     <td colspan="1" class="total_price">合計</td>
                     <td class="none"></td>
                     <td class="none"></td>
-                    <td class="all_total_price">{{ '¥' . number_format($sessionDataTotalPrice) . ' -' }}</td>
+                    <td class="all_total_price">{{ '¥' . number_format($totalPrice) . ' -' }}</td>
                 </tr>
             </table>
             <br>
             <div>【補足】</div>
             @for ($i = 1; $i <= EstimateFormCountConsts::FORM_HOSOKU; $i++)
                 <div class="hosoku">
-                    @if (empty($sessionDataHosoku[$i]))
+                    @if (empty($hosoku[$i]))
                     @break
                 @endif
-                <div> {{ $sessionDataHosoku[$i] }} </div>
+                <div> {{ $soku[$i] }} </div>
         @endfor
     </div>
 </div>
