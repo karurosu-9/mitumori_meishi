@@ -23,9 +23,11 @@ class CreateEstimateRequest extends FormRequest
      */
     public function rules()
     {
+        //corp_id,amount,total_priceは自動でユーザーの入力なしで登録される設設定
         return [
             'corp_id' => 'required|integer|regex:/^[0-9]+$/u',
             'date' => 'required|date|date_format:Y-m-d',
+            //インデックス番号１
             'tekiyo1' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
             'unit_price1' => 'required|string|max:50|regex:/^[0-9]+$/u',
             'quantity1' => 'required|string|max:50|regex:/^[a-zA-Z0-9ぁ-んァ-ヶ一-龠?!\-]+$/u',
@@ -61,6 +63,8 @@ class CreateEstimateRequest extends FormRequest
             'hosoku1' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
             'hosoku2' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
             'hosoku3' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            //合計金額のバリデーション
+            'total_price' => 'required|integer|regex:/^[0-9]+$/u',
         ];
     }
 
@@ -69,6 +73,7 @@ class CreateEstimateRequest extends FormRequest
         return [
             'corp_id.required' => '不具合により、会社のID番号が取得できません。',
             'date.required' => '日付が選択されていません。',
+            //インデックス番号１
             'tekiyo1.max' => '摘要１の入力欄の最大入力文字数は１００文字までです。',
             'tekiyo1.regex' => '摘要１の入力欄には数字のみの入力や？、！、－、以外の記号を入力することはできません。',
             'unit_price1.required' => '単価１の入力欄は必須です。',
@@ -137,6 +142,9 @@ class CreateEstimateRequest extends FormRequest
             'hosoku2.regex' => '補足２の入力欄には？、！、―、以外の記号を入力することはできません。',
             'hosoku3.max' => '補足３の入力欄の最大入力文字数は１００文字までです。',
             'hosoku3.regex' => '補足３の入力欄には？、！、―、以外の記号を入力することはできません。',
+            //合計金額のバリデーションメッセージ
+            'total_price.required' => '不具合により、合計金額が取得できません。',
+            'total_price.regex' => '不具合により、数字以外の入力があります。'
         ];
     }
 };
