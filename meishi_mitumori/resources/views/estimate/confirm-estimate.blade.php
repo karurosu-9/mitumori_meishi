@@ -120,7 +120,7 @@
         <button type="button" onclick="history.back()">見積り入力フォームに戻る</button>
         @if (Route::currentRouteName() === 'estimate.addConfirmEstimate')
             <button type="button"
-                onclick="cofirmRegisterData({{ route('estimate.createEstimate', ['corp' => $corp]) }})">登録</button>
+                onclick="confirmRegisterData({{ route('estimate.createEstimate', ['corp' => $corp]) }})">登録</button>
         @elseif (Route::currentRouteName() === 'estimate.edtiConfirmEstimate')
             <button type="button"
                 onclick="confirmRegisterData({{ route('estimate.updateEstimate', ['corp' => $cprp, 'estimate' => $estimate]) }})">更新</button>
