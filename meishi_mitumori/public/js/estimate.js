@@ -39,6 +39,7 @@ var __webpack_exports__ = {};
   \**********************************/
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   confirmRegisterData: () => (/* binding */ confirmRegisterData),
 /* harmony export */   subTotal: () => (/* binding */ subTotal)
 /* harmony export */ });
 function subTotal() {
@@ -67,10 +68,15 @@ function subTotal() {
       amountElement.setAttribute('type', 'text');
     }
     totalPrice += parseInt(amountElement.value);
-    console.log(totalPrice);
   }
   totalPriceElement.value = totalPrice;
 }
 window.subTotal = subTotal;
+function confirmRegisterData(url) {
+  if (confirm('この内容で登録してもよろしいですか？')) {
+    location.href = url;
+  }
+}
+window.confirmRegisterData = confirmRegisterData;
 /******/ })()
 ;

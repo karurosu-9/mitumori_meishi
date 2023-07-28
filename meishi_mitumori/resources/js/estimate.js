@@ -34,3 +34,11 @@ export function subTotal() {
 }
 
 window.subTotal = subTotal;
+
+export function confirmRegisterData(url) {
+    if (confirm('この内容で登録してもよろしいですか？')) {
+        location.href = url;
+    }
+}
+
+window.confirmRegisterData = confirmRegisterData;
