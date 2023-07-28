@@ -43,10 +43,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 function subTotal() {
   for (var i = 1; i <= FORM_NOT_HOSOKU; i++) {
-    var unit_price = document.getElementById('unit_price_' + i).value;
-    var quantity = document.getElementById('quantity_' + i).value;
+    var unit_price = document.getElementById('unit-price-' + i).value;
+    var quantity = document.getElementById('quantity-' + i).value;
     //amountはvalueの値は取得せず、要素のみを取得
-    var amountElement = document.getElementById('amount_' + i);
+    var amountElement = document.getElementById('amount-' + i);
     if (unit_price !== '' && quantity !== '') {
       //quantityが数字であれば単価＊数量の値をamountElementに格納
       if (isFinite(quantity)) {

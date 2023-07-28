@@ -28,12 +28,12 @@
         <tr>
             <td><input type="text" style="width: 400px;" name="tekiyo{{ $i }}"
                     value="{{ old('tekiyo' . $i) }}"></td>
-            <td><input type="text" name="unit_price{{ $i }}" id="unit_price_{{ $i }}"
+            <td><input type="text" name="unit_price{{ $i }}" id="unit-price-{{ $i }}"
                     onChange="subTotal()" value="{{ old('unit_price' . $i) }}" style="width: 100px"></td>
-            <td><input type="text" name="quantity{{ $i }}" id="quantity_{{ $i }}"
+            <td><input type="text" name="quantity{{ $i }}" id="quantity-{{ $i }}"
                     onChange="subTotal()" value="{{ old('quantity' . $i) }}" style="width: 80px">
             </td>
-            <td><input type="text" name="amount{{ $i }}" id="amount_{{ $i }}"
+            <td><input type="text" name="amount{{ $i }}" id="amount-{{ $i }}"
                     value="{{ old('amount' . $i) }}" style="width: 100px" readonly>
             </td>
             <td><input type="text" name="note{{ $i }}" value="{{ old('note' . $i) }}"

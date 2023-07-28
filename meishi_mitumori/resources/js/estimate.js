@@ -1,9 +1,9 @@
 export function subTotal() {
     for (let i = 1; i <= FORM_NOT_HOSOKU; i++) {
-        let unit_price = document.getElementById('unit_price_' + i).value;
-        let quantity = document.getElementById('quantity_' + i).value;
+        let unit_price = document.getElementById('unit-price-' + i).value;
+        let quantity = document.getElementById('quantity-' + i).value;
         //amountはvalueの値は取得せず、要素のみを取得
-        let amountElement = document.getElementById('amount_' + i);
+        let amountElement = document.getElementById('amount-' + i);
 
         if (unit_price !== '' && quantity !== '') {
             //quantityが数字であれば単価＊数量の値をamountElementに格納
