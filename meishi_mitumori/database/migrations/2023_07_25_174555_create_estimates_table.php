@@ -38,7 +38,7 @@ return new class extends Migration
                 $table->string('hosoku' . $i, 255)->nullable();
             }
 
-            $table->unsignedBigInteger('total_amount')->nullable(false);
+            $table->unsignedBigInteger('total_price')->nullable(false);
             $table->timestamps();
         });
     }
