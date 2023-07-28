@@ -39,24 +39,19 @@ class EstimateController extends Controller
         $tel = substr($myCorp->tel, 0, 3) . '-' . substr($myCorp->tel, 3, 3) . '-' . substr($myCorp->tel, 6);
         $fax = substr($myCorp->fax, 0, 3) . '-' . substr($myCorp->fax, 3, 3) . '-' . substr($myCorp->fax, 6);
 
-        //合計金額の初期化
-        $totalPrice = 0;
-
         for ($i = 1; $i <= EstimateFormCountConsts::FORM_NOT_HOSOKU; $i++) {
             $sessionDataTekiyo[$i] = $formValidatedData['tekiyo' . $i];
             $sessionDataUnitPrice[$i] = $formValidatedData['unit_price' . $i];
             $sessionDataQuantity[$i] = $formValidatedData['quantity' . $i];
             $sessionDataAmount[$i] = $formValidatedData['amount' . $i];
             $sessionDataNote[$i] = $formValidatedData['note' . $i];
-            $totalPrice += $formValidatedData['amount' . $i];
         }
 
         for ($i = 1; $i <= EstimateFormCountConsts::FORM_HOSOKU; $i++) {
             $sessionDataHosoku[$i] = $formValidatedData['hosoku' . $i];
         }
 
-        //total_priceを格納
-        $formValidatedData['total_price'] = $totalPrice;
+        $sessionDataTotalPrice = $formValidatedData['total_price'];
 
         //フォームの送信データなどをsessionに格納
         $request->session()->put('estimateData', $formValidatedData);
@@ -73,14 +68,15 @@ class EstimateController extends Controller
             'sessionDataAmount' => $sessionDataAmount,
             'sessionDataNote' => $sessionDataNote,
             'sessionDataHosoku' => $sessionDataHosoku,
-            'totalPrice' => $totalPrice,
+            'sessionDataTotalPrice' => $sessionDataTotalPrice,
             'corp' => $corp,
         ];
 
         return view('estimate.confirm-estimate', $data);
     }
 
-    public function RegisterData(Corp $corp)
+    public function create(Request $request, Corp $corp)
     {
+        $validatedData = $request->session()->get('estimateData');
     }
 }
