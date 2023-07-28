@@ -8,6 +8,7 @@ use App\Models\Corp;
 use App\Models\MyCorp;
 use App\Http\Requests\CreateEstimateRequest;
 use App\Consts\EstimateFormCountConsts;
+use Illuminate\Support\Facades\Validator;
 
 class EstimateController extends Controller
 {
@@ -77,6 +78,76 @@ class EstimateController extends Controller
 
     public function create(Request $request, Corp $corp)
     {
-        $validatedData = $request->session()->get('estimateData');
+        $sessionData = $request->session()->get('estimateData');
+
+        $estimate = new Estimate;
+
+        //関数validateCheckerでセッションデータのバリデーションチェックをする
+        $errors = $this->validateChecker($sessionData);
+
+        //バリデーションに引っかかった時の処理
+        if ($errors) {
+            return redirect()->route('estimate.add')->withErrors($errors)->withInput();
+        }
+
+        $estimate->fill($sessionData)->save();
+
+        return redirect()->route('estimate.show', ['corp' => $corp, 'estimate' => $estimate]);
+    }
+
+    //セッションデータのバリデーションをチェックする関数
+    private function validateChecker($formValidatedData)
+    {
+        //フォームリクエストと同じバリデーションの設定
+        $rules = [
+            'corp_id' => 'required|integer|regex:/^[0-9]+$/u',
+            'date' => 'required|date|date_format:Y-m-d',
+            //インデックス番号１
+            'tekiyo1' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            'unit_price1' => 'required|string|max:50|regex:/^[0-9]+$/u',
+            'quantity1' => 'required|string|max:50|regex:/^[a-zA-Z0-9ぁ-んァ-ヶ一-龠?!\-]+$/u',
+            'amount1' => 'required|string|max:50|regex:/^[0-9]+$/u',
+            'note1' => 'nullable|string|max:255|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            //インデックス番号２
+            'tekiyo2' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            //単価と数量の両方に値が入っていないとエラーになる。片方だけではダメ(３～５も同じ)
+            'unit_price2' => 'nullable|required_with:quantity2|max:50|regex:/^[0-9]+$/u',
+            'quantity2' => 'nullable|string|required_with:unit_price2|max:50|regex:/^[a-zA-Z0-9ぁ-んァ-ヶ一-龠?!\-]+$/u',
+            //金額に値が入っている場合は、単価と数量に値は必須(３～５も同じ)
+            'amount2' => 'nullable|string|required_with:unit_price2, quantity2|max:50|regex:/^[0-9]+$/u',
+            'note2' => 'nullable|string|max:255|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            //インデックス番号３
+            'tekiyo3' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            'unit_price3' => 'nullable|string|required_with:quantity3|max:50|regex:/^[0-9]+$/u',
+            'quantity3' => 'nullable|string|required_with:unit_price3|max:50|regex:/^[a-zA-Z0-9ぁ-んァ-ヶ一-龠?!\-]+$/u',
+            'amount3' => 'nullable|string|required_with:unit_price3, quantity3|max:50|regex:/^[0-9]+$/u',
+            'note3' => 'nullable|string|max:255|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            //インデックス番号４
+            'tekiyo4' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            'unit_price4' => 'nullable|string|required_with:quantity4|max:50|regex:/^[0-9]+$/u',
+            'quantity4' => 'nullable|string|required_with:unit_price4|max:50|regex:/^[a-zA-Z0-9ぁ-んァ-ヶ一-龠?!\-]+$/u',
+            'amount4' => 'nullable|string|required_with:unit_price4, quantity4|max:50|regex:/^[0-9]+$/u',
+            'note4' => 'nullable|string|max:255|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            //インデックス番号５
+            'tekiyo5' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            'unit_price5' => 'nullable|string|required_with:quantity5|max:50|regex:/^[0-9]+$/u',
+            'quantity5' => 'nullable|string|required_with:unit_price5|max:50|regex:/^[a-zA-Z0-9ぁ-んァ-ヶ一-龠?!\-]+$/u',
+            'amount5' => 'nullable|string|required_with:unit_price5, quantity5|max:50|regex:/^[0-9]+$/u',
+            'note5' => 'nullable|string|max:255|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            //補足のバリデーション
+            'hosoku1' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            'hosoku2' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            'hosoku3' => 'nullable|string|max:100|regex:/^(?=.*[a-zA-Zぁ-んァ-ヶ一-龠?!\-])[a-zA-Zぁ-んァ-ヶ一-龠0-9?!\-]+$/u',
+            //合計金額のバリデーション
+            'total_price' => 'required|integer|regex:/^[0-9]+$/u',
+        ];
+
+        $validator = Validator::make($formValidatedData, $rules);
+
+        if ($validator->fails()) {
+            return $validator->errors()->all();
+        }
+
+        return null;
     }
 }
