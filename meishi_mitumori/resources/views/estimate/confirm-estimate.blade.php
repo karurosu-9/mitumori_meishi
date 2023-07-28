@@ -47,7 +47,8 @@
                     <br>
                 </div>
                 <div class="image">
-                    <img class="image" src="asset('img/アスカプランニング角印.png')" width="95px" height="95px" alt="角印">
+                    <img class="image" src="{{ asset('/img/アスカプランニング角印.png') }}" width="95px" height="95px"
+                        alt="角印">
                 </div>
                 <div class="mycorp">
                     <div class="group3">
@@ -63,10 +64,10 @@
                     </div>
                     <div class="group4">
                         <div class="tel">
-                            {{ $tel }}
+                            TEL {{ $tel }}
                         </div>
                         <div class="fax">
-                            {{ $fax }}
+                            FAX {{ $fax }}
                         </div>
                     </div>
                 </div>
@@ -92,15 +93,14 @@
                         <td style="border:none;">{{ $note[$i] }}</td>
                     </tr>
                 @endfor
-                <div>
-                    <tr>
-                        <td colspan="1" class="total_price">合計</td>
-                        <td class="none"></td>
-                        <td class="none"></td>
-                        <td class="all_total_price">{{ '¥' . number_format($totalPrice) }} . ' -'</td>
-                    </tr>
-                </div>
+                <tr>
+                    <td colspan="1" class="total_price">合計</td>
+                    <td class="none"></td>
+                    <td class="none"></td>
+                    <td class="all_total_price">{{ '¥' . number_format($totalPrice) . ' -' }}</td>
+                </tr>
             </table>
+            <br>
             <div>【補足】</div>
             @for ($i = 1; $i <= EstimateFormCountConsts::FORM_HOSOKU; $i++)
                 <div class="hosoku">

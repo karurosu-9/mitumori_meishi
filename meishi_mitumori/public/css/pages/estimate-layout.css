@@ -46,6 +46,11 @@ button {
 }
 
 .estimate {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    width: 1050px;
     font-family: "ＭＳ Ｐ明朝";
 }
 
@@ -188,8 +193,7 @@ td {
 
 .image {
     position: absolute;
-    margin-top: 10px;
-    margin-left: 750px;
+    margin-left: 380px;
 }
 
 .total_price {
