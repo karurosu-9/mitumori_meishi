@@ -51,7 +51,6 @@ function subTotal() {
       //quantityが数字であれば単価＊数量の値をamountElementに格納
       if (isFinite(quantity)) {
         var addAmount = unit_price * quantity;
-        console.log(addAmount);
         amountElement.value = addAmount;
         //quantityが文字列であれば単価の値をamountElementに格納
       } else {
