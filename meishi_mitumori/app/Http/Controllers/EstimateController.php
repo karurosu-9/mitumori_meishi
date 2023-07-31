@@ -12,6 +12,47 @@ use Illuminate\Support\Facades\Validator;
 
 class EstimateController extends Controller
 {
+    public function show(MyCorp $myCorp, Corp $corp, Estimate $estimate)
+    {
+        $myCorp = $myCorp->first();
+
+        $postalCode = substr($myCorp->postal_code, 0, 3) . '-' . substr($myCorp->postal_code, 3);
+        $tel = substr($myCorp->tel, 0, 3) . '-' . substr($myCorp->tel, 3, 3) . '-' . substr($myCorp->tel, 6);
+        $fax = substr($myCorp->fax, 0, 3) . '-' . substr($myCorp->fax, 3, 3) . '-' . substr($myCorp->fax, 6);
+
+        $estimateData = $estimate;
+
+        $formattedDate = date('Y年n月j日', strtotime($estimateData['date']));
+
+        $result = $this->processEstimateData($estimateData);
+        $tekiyo = $result['tekiyo'];
+        $unitPrice = $result['unitPrice'];
+        $quantity = $result['quantity'];
+        $amount = $result['amount'];
+        $note = $result['note'];
+        $hosoku = $result['hosoku'];
+        $totalPrice = $result['totalPrice'];
+
+        $data = [
+            'myCorp' => $myCorp,
+            'postalCode' => $postalCode,
+            'tel' => $tel,
+            'fax' => $fax,
+            'formattedDate' => $formattedDate,
+            'corp' => $corp,
+            'estimate' => $estimate,
+            'tekiyo' => $tekiyo,
+            'unitPrice' => $unitPrice,
+            'quantity' => $quantity,
+            'amount' => $amount,
+            'note' => $note,
+            'hosoku' => $hosoku,
+            'totalPrice' => $totalPrice,
+        ];
+
+        return view('estimate.show', $data);
+    }
+
     public function add(Corp $corp)
     {
         $data = [
@@ -39,7 +80,7 @@ class EstimateController extends Controller
         $formattedDate = date('Y年n月j日', strtotime($formValidatedData['date']));
 
         //自作関数でforループの処理をし、それぞれの変数に格納
-        $result = $this->processEstimateData($request);
+        $result = $this->processEstimateData($formValidatedData);
 
         $tekiyo = $result['tekiyo'];
         $unitPrice = $result['unitPrice'];
@@ -86,6 +127,7 @@ class EstimateController extends Controller
         }
 
         $estimate->fill($sessionData)->save();
+        $request->session()->forget('estimateData');
 
         return redirect()->route('estimate.show', ['corp' => $corp, 'estimate' => $estimate]);
     }
@@ -146,23 +188,21 @@ class EstimateController extends Controller
         return null;
     }
 
-    private function processEstimateData(CreateEstimateRequest $request)
+    private function processEstimateData($validatedData)
     {
-        $formValidatedData = $request->validated();
-
         for ($i = 1; $i <= EstimateFormCountConsts::FORM_NOT_HOSOKU; $i++) {
-            $tekiyo[$i] = $formValidatedData['tekiyo' . $i];
-            $unitPrice[$i] = $formValidatedData['unit_price' . $i];
-            $quantity[$i] = $formValidatedData['quantity' . $i];
-            $amount[$i] = $formValidatedData['amount' . $i];
-            $note[$i] = $formValidatedData['note' . $i];
+            $tekiyo[$i] = $validatedData['tekiyo' . $i];
+            $unitPrice[$i] = $validatedData['unit_price' . $i];
+            $quantity[$i] = $validatedData['quantity' . $i];
+            $amount[$i] = $validatedData['amount' . $i];
+            $note[$i] = $validatedData['note' . $i];
         }
 
         for ($i = 1; $i <= EstimateFormCountConsts::FORM_HOSOKU; $i++) {
-            $hosoku[$i] = $formValidatedData['hosoku' . $i];
+            $hosoku[$i] = $validatedData['hosoku' . $i];
         }
 
-        $totalPrice = $formValidatedData['total_price'];
+        $totalPrice = $validatedData['total_price'];
 
         return [
             'tekiyo' => $tekiyo,
