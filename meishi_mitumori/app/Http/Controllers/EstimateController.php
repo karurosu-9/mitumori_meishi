@@ -132,6 +132,35 @@ class EstimateController extends Controller
         return redirect()->route('estimate.show', ['corp' => $corp, 'estimate' => $estimate]);
     }
 
+    public function edit(Corp $corp, Estimate $estimate)
+    {
+        $result = $this->processEstimateData($estimate);
+
+        $tekiyo = $result['tekiyo'];
+        $unitPrice = $result['unitPrice'];
+        $quantity = $result['quantity'];
+        $amount = $result['amount'];
+        $note = $result['note'];
+        $hosoku = $result['hosoku'];
+        $totalPrice = $result['totalPrice'];
+
+        $data = [
+            'corp' => $corp,
+            'estimate' => $estimate,
+            'EstimateFormCountConsts::FORM_NOT_HOSOKU' => EstimateFormCountConsts::FORM_NOT_HOSOKU,
+            'EstimateFormCountConsts::FORM_HOSOKU' => EstimateFormCountConsts::FORM_HOSOKU,
+            'tekiyo' => $tekiyo,
+            'unitPrice' => $unitPrice,
+            'quantity' => $quantity,
+            'amount' => $amount,
+            'note' => $note,
+            'hosoku' => $hosoku,
+            'totalPrice' => $totalPrice,
+        ];
+
+        return view('estimate.edit', $data);
+    }
+
     //セッションデータのバリデーションをチェックする関数
     private function validateChecker($formValidatedData)
     {
