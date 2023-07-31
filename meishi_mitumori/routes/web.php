@@ -43,5 +43,7 @@ Route::get('corp/{corp}/estimate/index', [EstimateController::class, 'index'])->
 Route::get('corp/{corp}/estimate/{estimate}/show', [EstimateController::class, 'show'])->name('estimate.show');
 Route::get('corp/{corp}/estimate/add', [EstimateController::class, 'add'])->name('estimate.add');
 Route::post('corp/{corp}/estimate/confirmEstimate', [EstimateController::class, 'confirmEstimate'])->name('estimate.addConfirmEstimate');
+Route::get('corp/{corp}/estimate/{estimate}/edit', [EstimateController::class, 'edit'])->name('estimate.edit');
 Route::put('corp/{corp}/estimate/{estimate}/confirmEstimate', [EstimateController::class, 'confirmEstimate'])->name('estimate.editConfirmEstimate');
 Route::get('corp/{corp}/estimate/confirmEstimate', [EstimateController::class, 'create'])->name('estimate.createEstimate');
+Route::get('corp/{corp}/estimate/{estimate}/delete', [EstimateController::class, 'delete'])->name('estimate.delete');
