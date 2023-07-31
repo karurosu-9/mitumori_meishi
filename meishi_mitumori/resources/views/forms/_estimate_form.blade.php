@@ -27,16 +27,16 @@
     @for ($i = 1; $i <= EstimateFormCountConsts::FORM_NOT_HOSOKU; $i++)
         <tr>
             <td><input type="text" style="width: 400px;" name="tekiyo{{ $i }}"
-                    value="{{ old('tekiyo' . $i) }}"></td>
+                    value="{{ Route::currentRouteName() === 'estimate.add' ? old('tekiyo' . $i) : $tekiyo[$i] }}"></td>
             <td><input type="text" name="unit_price{{ $i }}" id="unit-price-{{ $i }}"
-                    onChange="subTotal()" value="{{ old('unit_price' . $i) }}" style="width: 100px"></td>
+                    onChange="subTotal()" value="{{ Route::currentRouteName() === 'estimate.add' ? old('unit_price' . $i) : $unitPrice[$i] }}" style="width: 100px"></td>
             <td><input type="text" name="quantity{{ $i }}" id="quantity-{{ $i }}"
-                    onChange="subTotal()" value="{{ old('quantity' . $i) }}" style="width: 80px">
+                    onChange="subTotal()" value="{{ Route::currentRouteName() === 'estimate.add' ? old('quantity' . $i) : $quantity[$i] }}" style="width: 80px">
             </td>
             <td><input type="text" name="amount{{ $i }}" id="amount-{{ $i }}"
-                    value="{{ old('amount' . $i) }}" style="width: auto" readonly>
+                    value="{{ Route::currentRouteName() === 'estimate.add' ? old('amount' . $i) : $amount[$i] }}" style="width: auto" readonly>
             </td>
-            <td><input type="text" name="note{{ $i }}" value="{{ old('note' . $i) }}"
+            <td><input type="text" name="note{{ $i }}" value="{{ Route::currentRouteName() === 'estimate.add' ? old('note' . $i) : $note[$i] }}"
                     style="width: 400px">
             </td>
         </tr>
@@ -45,14 +45,14 @@
         <td colspan="1" class="total_price">合計</td>
         <td class="none">――</td>
         <td class="none">――</td>
-        <td><input type="text" name="total_price" id="total-price" value="{{ old('total_price') }}" readonly></td>
+        <td><input type="text" name="total_price" id="total-price" value="{{ Route::currentRouteName() === 'estimate.add' ? old('total_price') : $totalPrice }}" readonly></td>
         <td class="none"></td>
     </tr>
 </table>
 
 <div>補足</div>
 @for ($i = 1; $i <= EstimateFormCountConsts::FORM_HOSOKU; $i++)
-    <div><input type="text" name="hosoku{{ $i }}" value="{{ old('hosoku' . $i) }}"
+    <div><input type="text" name="hosoku{{ $i }}" value="{{ Route::currentRouteName() === 'estimate.add' ? old('hosoku' . $i) : $hosoku[$i] }}"
             style="width: 1134px">
     </div>
 @endfor
