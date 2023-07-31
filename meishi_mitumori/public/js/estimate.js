@@ -40,6 +40,8 @@ var __webpack_exports__ = {};
 __webpack_require__.r(__webpack_exports__);
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   confirmRegisterData: () => (/* binding */ confirmRegisterData),
+/* harmony export */   deleteEstimate: () => (/* binding */ deleteEstimate),
+/* harmony export */   editEstimate: () => (/* binding */ editEstimate),
 /* harmony export */   subTotal: () => (/* binding */ subTotal)
 /* harmony export */ });
 function subTotal() {
@@ -78,5 +80,16 @@ function confirmRegisterData(url) {
   }
 }
 window.confirmRegisterData = confirmRegisterData;
+function editEstimate(url) {
+  location.href = url;
+}
+window.editEstimate = editEstimate;
+function deleteEstimate(event, url) {
+  var corpName = event.target.getAttribute('data-corp-name');
+  if (confirm('会社名『' + corpName + '』の見積書を削除してもよろしいですか？')) {
+    location.href = url;
+  }
+}
+window.deleteEstimate = deleteEstimate;
 /******/ })()
 ;

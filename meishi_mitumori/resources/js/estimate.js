@@ -42,3 +42,19 @@ export function confirmRegisterData(url) {
 }
 
 window.confirmRegisterData = confirmRegisterData;
+
+export function editEstimate(url) {
+    location.href = url;
+}
+
+window.editEstimate = editEstimate;
+
+export function deleteEstimate(event, url) {
+    let corpName = event.target.getAttribute('data-corp-name');
+
+    if (confirm('会社名『' + corpName + '』の見積書を削除してもよろしいですか？')) {
+        location.href = url;
+    }
+}
+
+window.deleteEstimate = deleteEstimate;
