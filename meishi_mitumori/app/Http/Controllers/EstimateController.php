@@ -161,6 +161,26 @@ class EstimateController extends Controller
         return view('estimate.edit', $data);
     }
 
+    public function update(Request $request, Corp $corp, Estimate $estimate)
+    {
+        $sessionData = $request->session()->get('estimateData');
+
+        $errors = $this->validateChecker($sessionData);
+        if ($errors) {
+            redirect()->route('estimate.edit',['corp' => $corp, 'estimate' => $estimate])->withErrors($errors)->withInput();
+        }
+
+        $estimate->fill($sessionData)->save();
+        $request->session()->forget('estimateData');
+
+        $data = [
+            'corp' => $corp,
+            'estimate' => $estimate,
+        ];
+
+        return redirect()->route('estimate.show', ['corp' => $corp, 'estimate' => $estimate], $data);
+    }
+
     //セッションデータのバリデーションをチェックする関数
     private function validateChecker($formValidatedData)
     {
