@@ -12,6 +12,18 @@ use Illuminate\Support\Facades\Validator;
 
 class EstimateController extends Controller
 {
+    public function index(Corp $corp)
+    {
+        $estimates = $corp->estimates;
+
+        $data = [
+            'estimates' => $estimates,
+            'corp' => $corp,
+        ];
+
+        return view('estimate.index', $data);
+    }
+
     public function show(MyCorp $myCorp, Corp $corp, Estimate $estimate)
     {
         $myCorp = $myCorp->first();
@@ -159,6 +171,13 @@ class EstimateController extends Controller
         ];
 
         return view('estimate.edit', $data);
+    }
+
+    public function delete(Estimate $estimate)
+    {
+        $estimate->delete();
+
+        return redirect()->route("estimate.list");
     }
 
     public function update(Request $request, Corp $corp, Estimate $estimate)
