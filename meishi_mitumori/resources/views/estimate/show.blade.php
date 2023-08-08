@@ -9,6 +9,7 @@
     <br>
     <h1>【 {{ $corp->corp_name }} の見積り-詳細 】</h1>
     <br>
+    <button onclick="location.href='{{ route('estimate.corpEstimatesList', ['corp' => $corp]) }}'">見積一覧へ戻る</button>
     <br>
     <div class="estimate">
         <div class="content">
