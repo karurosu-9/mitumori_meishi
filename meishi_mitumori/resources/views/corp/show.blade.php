@@ -13,7 +13,9 @@
 <br>
 <div class="button">
     <button onclick="location.href='{{ route('business-card.corpBusinessCardsList', ['corp' => $corp]) }}'">名刺一覧</button>
+    <button onclick="location.href='{{ route('estimate.corpEstimatesList', ['corp' => $corp]) }}'">見積一覧</button>
     <button onclick="location.href='{{ route('business-card.add', ['corp' => $corp]) }}'">名刺登録</button>
+    <button onclick="location.href='{{ route('estimate.add', ['corp' => $corp]) }}'">見積登録</button>
 </div>
 <br>
 <br>

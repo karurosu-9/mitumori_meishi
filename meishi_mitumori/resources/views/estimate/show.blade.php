@@ -91,7 +91,7 @@
                         <td>{{ number_format($unitPrice[$i]) }}</td>
                         <td>{{ $quantity[$i] }}</td>
                         <td>{{ number_format($amount[$i]) . ' -' }}</td>
-                        <td style="border:none; width: 500px">{{ $note[$i] }}</td>
+                        <td style="border:none; width: 500px; text-align: left;">{{ $note[$i] }}</td>
                     </tr>
                 @endfor
                 <tr>

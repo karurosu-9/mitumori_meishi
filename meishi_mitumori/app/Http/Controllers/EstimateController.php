@@ -76,7 +76,7 @@ class EstimateController extends Controller
         return view('Estimate.add', $data);
     }
 
-    public function confirmEstimate(CreateEstimateRequest $request, MyCorp $myCorp, Corp $corp)
+    public function confirmEstimate(CreateEstimateRequest $request, MyCorp $myCorp, Corp $corp, Estimate $estimate)
     {
         //自社の情報を取得
         $myCorp = $myCorp->first();
@@ -119,6 +119,7 @@ class EstimateController extends Controller
             'hosoku' => $hosoku,
             'totalPrice' => $totalPrice,
             'corp' => $corp,
+            'estimate' => $estimate,
         ];
 
         return view('estimate.confirm-estimate', $data);
@@ -197,7 +198,8 @@ class EstimateController extends Controller
             'estimate' => $estimate,
         ];
 
-        return redirect()->route('estimate.show', ['corp' => $corp, 'estimate' => $estimate], $data);
+
+        return redirect()->route('estimate.show', ['corp' => $corp, 'estimate' => $estimate]);
     }
 
     //セッションデータのバリデーションをチェックする関数
