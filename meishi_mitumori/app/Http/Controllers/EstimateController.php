@@ -193,12 +193,6 @@ class EstimateController extends Controller
         $estimate->fill($sessionData)->save();
         $request->session()->forget('estimateData');
 
-        $data = [
-            'corp' => $corp,
-            'estimate' => $estimate,
-        ];
-
-
         return redirect()->route('estimate.show', ['corp' => $corp, 'estimate' => $estimate]);
     }
 
