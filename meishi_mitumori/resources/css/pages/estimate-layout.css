@@ -7,11 +7,15 @@ header {
     z-index: 100;
 }
 
+body {
+    font-family: "MS 明朝";
+}
+
 table {
     white-space: nowrap;
     border-width: 2px;
     border-collapse: collapse;
-    text-align: center;
+    text-align: left;
 }
 
 th {
